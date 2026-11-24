@@ -281,6 +281,13 @@ select.need{border-color:var(--ruby)!important;box-shadow:0 0 0 3px rgba(168,50,
 .docpage .seg button.on{color:var(--acc-solid)}
 .docpage .sw input:checked+i{background:var(--acc)}
 .dh-logo{height:34px;max-width:90px;object-fit:contain;background:#fff;border-radius:8px;padding:3px}
+.sync-chip{display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border-radius:20px;font-size:12.5px;font-weight:700;border:1px solid rgba(255,255,255,.18)}
+.sync-chip svg{width:17px;height:17px}
+.sync-chip.cloud{color:#7ff0b4;background:rgba(61,220,132,.12)}
+.sync-chip.local,.sync-chip.nocloud,.sync-chip.connecting{color:#ffd36b;background:rgba(255,200,80,.14)}
+.sync-chip.off{color:#ff9a9a;background:rgba(255,90,90,.16)}
+.mig-banner{align-items:center;flex-wrap:wrap}
+.mig-row{display:flex;gap:12px;align-items:flex-start;padding:10px 12px;border:1px solid var(--line);border-radius:12px;cursor:pointer;background:#fafcfb}
 .lines-empty{display:flex;flex-direction:column;align-items:center;gap:6px;color:var(--mute)}
 .lines-empty svg{width:28px;height:28px;color:var(--acc-solid,#0f5c52);opacity:.6}
 @media (max-width:860px){.dh-card{padding:18px}.dh-party b{font-size:22px}.dh-stats{gap:12px}.dh-stats b{font-size:15px}}
@@ -648,7 +655,7 @@ preparedBy:['المحاسب','Prepared by'],receivedBy:['المستلم','Receiv
 itemsSummary:['ملخص الأصناف','Items summary'],lines:['الأصناف','Lines'],wa_msg_doc:['مرفق','Attached'],permNote:['لا تملك صلاحية التعديل على هذه البيانات','You don\'t have permission to edit this data'],
 role:['الصلاحية','Role'],admin:['مدير','Admin'],staff:['موظف','Staff'],you:['أنت','You'],passChanged:['تم تغيير كلمة المرور','Password changed'],
 userExists:['اسم المستخدم موجود مسبقاً','Username already exists'],fillReq:['يرجى تعبئة الحقول المطلوبة','Please fill in the required fields'],
-cashNote:['البيع النقدي يُسدَّد بالكامل','Cash sales are paid in full'],paidFull:['مدفوعة بالكامل','Paid in full'],withBalance:['عليهم رصيد','With a balance'],today:['اليوم','Today'],lastNo:['آخر رقم','Last no.'],lastCount:['آخر جرد','Last count'],countsDone:['عمليات الجرد','Counts done'],withUnits:['بوحدات متعددة','Multi-unit'],usersN:['المستخدمون','Users'],avgInv:['متوسط الفاتورة','Average'],docData:['بيانات الفاتورة','Document details'],totalsSec:['الإجماليات والدفع','Totals & payment'],notesPh:['ملاحظة تظهر في الفاتورة (اختياري)','A note shown on the document (optional)'],docSub_sale:['بيع أصناف لعميل نقدي أو آجل','Sell items to a cash or credit customer'],docSub_purchase:['شراء أصناف من مورد','Buy items from a supplier'],docSub_issue:['إخراج بضاعة من المخزون بدون قيمة مالية','Release goods from stock without a money value'],docSub_salesReturn:['إرجاع أصناف من عميل إلى المخزون','Return items from a customer back to stock'],docSub_purchaseReturn:['إرجاع أصناف إلى المورد','Return items to a supplier'],itemFormSub:['أدخل بيانات الصنف ووحداته وأسعاره','Enter the item, its units and prices'],unitsPrices:['الوحدات والأسعار','Units & prices'],margin:['هامش الربح','Margin'],saveItem:['حفظ الصنف','Save item'],saveChanges:['حفظ التعديلات','Save changes'],nameArPh:['اسم الصنف','Item name'],unitsWord:['وحدات','units'],itemCard:['بيانات الصنف','Item details'],movements:['حركة الصنف','Item movements'],noMoves:['لا توجد حركات على هذا الصنف بعد','No movements on this item yet'],soldQty:['المباع','Sold'],boughtQty:['المشترى','Purchased'],inQty:['وارد','In'],outQty:['صادر','Out'],countAdj:['تسوية جرد','Stock count adjustment'],baseUnitLbl:['أساسية','Base'],bulkTax:['ضريبة كل الأصناف','Tax for all items'],bulkTaxTitle:['تغيير الضريبة لكل الأصناف','Change tax for all items'],bulkExempt:['جعل كل الأصناف غير خاضعة للضريبة','Make all items tax-exempt'],bulkTaxable:['جعل كل الأصناف خاضعة للضريبة','Make all items taxable'],bulkNew:['وتطبيق نفس الإعداد على الأصناف الجديدة','Apply the same to new items'],bulkDone:['تم تحديث الضريبة لكل الأصناف','Tax updated for all items'],bulkNote:['الفواتير المحفوظة سابقاً لا تتغير — التغيير يطبق على الفواتير الجديدة.','Saved invoices are not changed — this applies to new invoices.'],itemTaxableDef:['الأصناف الجديدة خاضعة للضريبة','New items are taxable'],nItems:['صنف','items'],whatsappNo:['رقم الواتساب','WhatsApp number'],waShort:['واتساب','WhatsApp'],logo:['الشعار','Logo'],uploadLogo:['رفع شعار','Upload logo'],changeLogo:['تغيير الشعار','Change logo'],removeLogo:['إزالة','Remove'],logoHint:['PNG أو JPG — يظهر أعلى الفواتير والتقارير. اضغط «حفظ» بعد اختياره.','PNG or JPG — shown at the top of invoices and reports. Press Save after choosing it.'],logoBad:['تعذّرت قراءة الصورة — جرّب ملف PNG أو JPG','Could not read the image — try a PNG or JPG file'],invoiceKind:['نوع الفاتورة','Invoice type'],taxInvoice:['فاتورة','Invoice'],deliveryNote:['فاتورة تسليم','Delivery note'],totalQty:['إجمالي الكمية','Total quantity'],itemsCountLbl:['عدد الأصناف','Number of items'],payMethod:['طريقة الدفع','Payment method'],pm_cash:['نقداً','Cash'],pm_benefit:['بنفت','BenefitPay'],pm_credit:['آجل','Credit'],needPay:['اختر طريقة الدفع قبل حفظ الفاتورة','Choose a payment method before saving the invoice'],creditNeedsCustomer:['البيع الآجل يحتاج اسم العميل — اختره من القائمة أو أضفه بزر +','A credit sale needs a customer — pick one or add one with +'],byMethod:['المبيعات حسب طريقة الدفع','Sales by payment method'],advance:['دفعة مقدمة','Down payment'],invCount:['فاتورة','invoices'],movement:['حركة','Movement'],language:['اللغة','Language'],
+cashNote:['البيع النقدي يُسدَّد بالكامل','Cash sales are paid in full'],paidFull:['مدفوعة بالكامل','Paid in full'],cloudConnecting:['جارٍ الاتصال بالحفظ السحابي…','Connecting to cloud storage…'],cloudFail:['تعذّر الاتصال بالحفظ السحابي. تحقق من الإنترنت ثم أعد المحاولة — إذا تابعت على هذا الجهاز فلن تصل البيانات إلى حسابك.','Could not reach cloud storage. Check the internet and retry — if you continue on this device, data will not reach your account.'],retry:['إعادة المحاولة','Retry'],useLocal:['متابعة على هذا الجهاز فقط','Continue on this device only'],cloudLost:['انقطع الاتصال بالحفظ السحابي — لم يُحفظ التغيير. أعد فتح التطبيق','Cloud connection lost — the change was not saved. Reopen the app'],checkNet:['تحقق من الإنترنت','check the internet'],offlineNow:['انقطع الإنترنت — انتظر عودته قبل الحفظ','You are offline — wait before saving'],onlineNow:['عاد الاتصال بالإنترنت','Back online'],migTitle:['بيانات على هذا الجهاز فقط','Data on this device only'],migIntro:['وجدنا بيانات أُدخلت سابقاً على هذا الجهاز ولم تُرفع إلى حسابك. اختر ما تريد رفعه:','We found data entered earlier on this device that never reached your account. Choose what to upload:'],migNote:['الأرقام المكررة تُعطى رقماً جديداً تلقائياً. بعد الرفع تُحفظ نسخة على الجهاز احتياطاً.','Clashing numbers get a new number automatically. A copy is kept on the device as a precaution.'],migGo:['رفع إلى السحابة','Upload to cloud'],migSkip:['تجاهل','Ignore'],migDone:['تم رفع البيانات إلى حسابك','Data uploaded to your account'],migBanner:['يوجد {n} سجلاً على هذا الجهاز فقط لم يُرفع إلى حسابك.','{n} records exist on this device only and never reached your account.'],migReview:['مراجعة ورفع','Review & upload'],syncCloud:['محفوظ سحابياً','Saved'],syncLocal:['على الجهاز فقط','Device only'],syncOff:['غير متصل','Offline'],withBalance:['عليهم رصيد','With a balance'],today:['اليوم','Today'],lastNo:['آخر رقم','Last no.'],lastCount:['آخر جرد','Last count'],countsDone:['عمليات الجرد','Counts done'],withUnits:['بوحدات متعددة','Multi-unit'],usersN:['المستخدمون','Users'],avgInv:['متوسط الفاتورة','Average'],docData:['بيانات الفاتورة','Document details'],totalsSec:['الإجماليات والدفع','Totals & payment'],notesPh:['ملاحظة تظهر في الفاتورة (اختياري)','A note shown on the document (optional)'],docSub_sale:['بيع أصناف لعميل نقدي أو آجل','Sell items to a cash or credit customer'],docSub_purchase:['شراء أصناف من مورد','Buy items from a supplier'],docSub_issue:['إخراج بضاعة من المخزون بدون قيمة مالية','Release goods from stock without a money value'],docSub_salesReturn:['إرجاع أصناف من عميل إلى المخزون','Return items from a customer back to stock'],docSub_purchaseReturn:['إرجاع أصناف إلى المورد','Return items to a supplier'],itemFormSub:['أدخل بيانات الصنف ووحداته وأسعاره','Enter the item, its units and prices'],unitsPrices:['الوحدات والأسعار','Units & prices'],margin:['هامش الربح','Margin'],saveItem:['حفظ الصنف','Save item'],saveChanges:['حفظ التعديلات','Save changes'],nameArPh:['اسم الصنف','Item name'],unitsWord:['وحدات','units'],itemCard:['بيانات الصنف','Item details'],movements:['حركة الصنف','Item movements'],noMoves:['لا توجد حركات على هذا الصنف بعد','No movements on this item yet'],soldQty:['المباع','Sold'],boughtQty:['المشترى','Purchased'],inQty:['وارد','In'],outQty:['صادر','Out'],countAdj:['تسوية جرد','Stock count adjustment'],baseUnitLbl:['أساسية','Base'],bulkTax:['ضريبة كل الأصناف','Tax for all items'],bulkTaxTitle:['تغيير الضريبة لكل الأصناف','Change tax for all items'],bulkExempt:['جعل كل الأصناف غير خاضعة للضريبة','Make all items tax-exempt'],bulkTaxable:['جعل كل الأصناف خاضعة للضريبة','Make all items taxable'],bulkNew:['وتطبيق نفس الإعداد على الأصناف الجديدة','Apply the same to new items'],bulkDone:['تم تحديث الضريبة لكل الأصناف','Tax updated for all items'],bulkNote:['الفواتير المحفوظة سابقاً لا تتغير — التغيير يطبق على الفواتير الجديدة.','Saved invoices are not changed — this applies to new invoices.'],itemTaxableDef:['الأصناف الجديدة خاضعة للضريبة','New items are taxable'],nItems:['صنف','items'],whatsappNo:['رقم الواتساب','WhatsApp number'],waShort:['واتساب','WhatsApp'],logo:['الشعار','Logo'],uploadLogo:['رفع شعار','Upload logo'],changeLogo:['تغيير الشعار','Change logo'],removeLogo:['إزالة','Remove'],logoHint:['PNG أو JPG — يظهر أعلى الفواتير والتقارير. اضغط «حفظ» بعد اختياره.','PNG or JPG — shown at the top of invoices and reports. Press Save after choosing it.'],logoBad:['تعذّرت قراءة الصورة — جرّب ملف PNG أو JPG','Could not read the image — try a PNG or JPG file'],invoiceKind:['نوع الفاتورة','Invoice type'],taxInvoice:['فاتورة','Invoice'],deliveryNote:['فاتورة تسليم','Delivery note'],totalQty:['إجمالي الكمية','Total quantity'],itemsCountLbl:['عدد الأصناف','Number of items'],payMethod:['طريقة الدفع','Payment method'],pm_cash:['نقداً','Cash'],pm_benefit:['بنفت','BenefitPay'],pm_credit:['آجل','Credit'],needPay:['اختر طريقة الدفع قبل حفظ الفاتورة','Choose a payment method before saving the invoice'],creditNeedsCustomer:['البيع الآجل يحتاج اسم العميل — اختره من القائمة أو أضفه بزر +','A credit sale needs a customer — pick one or add one with +'],byMethod:['المبيعات حسب طريقة الدفع','Sales by payment method'],advance:['دفعة مقدمة','Down payment'],invCount:['فاتورة','invoices'],movement:['حركة','Movement'],language:['اللغة','Language'],
 lowList:['تنبيهات المخزون','Stock alerts'],noLow:['كل الأصناف فوق حد الطلب','All items are above reorder level'],
 };
 const S={lang:'ar',user:null,route:'dashboard',param:null,ready:false,mode:'local',dirty:false,draft:null,filters:{},openGroup:undefined,sideCollapsed:false,data:{}};
@@ -744,48 +751,87 @@ function itemUsed(id){return Object.values(DOCS).some(c=>S.data[c.col].some(d=>(
 
 /* ===================== storage ===================== */
 const Store={
-  db:null,
-  loadLocal(){try{const raw=localStorage.getItem('ias-data-v1');if(raw){const o=JSON.parse(raw);COLS.forEach(c=>S.data[c]=Array.isArray(o[c])?o[c]:[])}}catch(e){}},
+  db:null,subscribed:false,
+  readLocal(){try{const raw=localStorage.getItem('ias-data-v1');if(raw){const o=JSON.parse(raw);const r={};COLS.forEach(c=>r[c]=Array.isArray(o[c])?o[c]:[]);return r}}catch(e){}return null},
+  loadLocal(){const o=this.readLocal();if(o)COLS.forEach(c=>S.data[c]=o[c])},
   persistLocal(){try{localStorage.setItem('ias-data-v1',JSON.stringify(S.data))}catch(e){}},
   async init(){
-    this.loadLocal();
+    S.ready=false;S.localCache=this.readLocal();
     const api=window.claude;
-    if(api&&typeof api.use==='function'){
-      let db=null;
-      try{db=await Promise.race([api.use('db'),new Promise(r=>setTimeout(()=>r(null),10000))])}catch(e){db=null}
-      if(db){
-        this.db=db;S.mode='cloud';COLS.forEach(c=>S.data[c]=[]);
-        await new Promise(resolve=>{
-          const got=new Set();const timer=setTimeout(resolve,10000);
-          COLS.forEach(col=>{
-            try{
-              db.collection(col).onSnapshot(snap=>{
-                S.data[col]=snap.docs.map(d=>Object.assign({},d.data(),{id:d.id}));
-                got.add(col);if(!S.ready&&got.size===COLS.length){clearTimeout(timer);resolve()}
-                if(S.ready)scheduleRender();
-              },err=>{got.add(col);if(got.size===COLS.length){clearTimeout(timer);resolve()}console.warn('db',col,err&&err.code)});
-            }catch(e){got.add(col)}
-          });
+    if(!(api&&typeof api.use==='function')){this.loadLocal();S.mode='local';S.ready=true;return}
+    S.mode='connecting';
+    let db=this.db;
+    if(!db){try{db=await Promise.race([api.use('db'),new Promise(r=>setTimeout(()=>r(null),15000))])}catch(e){db=null}}
+    if(!db){S.mode='nocloud';return}
+    this.db=db;S.mode='cloud';
+    if(!this.subscribed){this.subscribed=true;COLS.forEach(c=>S.data[c]=[]);
+      await new Promise(resolve=>{
+        const got=new Set();const timer=setTimeout(resolve,15000);
+        COLS.forEach(col=>{
+          try{
+            db.collection(col).onSnapshot(snap=>{
+              S.data[col]=snap.docs.map(d=>Object.assign({},d.data(),{id:d.id}));
+              got.add(col);if(!S.ready&&got.size===COLS.length){clearTimeout(timer);resolve()}
+              if(S.ready)scheduleRender();
+            },err=>{got.add(col);if(got.size===COLS.length){clearTimeout(timer);resolve()}console.warn('db',col,err&&err.code);if(err&&err.code==='revoked'){S.mode='nocloud';toast(t('cloudLost'),'err');render()}});
+          }catch(e){got.add(col)}
         });
-      }
-    }
+      });}
     S.ready=true;
   },
+  async _try(fn){try{return await fn()}catch(e){if(e&&e.code==='unavailable'){await new Promise(r=>setTimeout(r,500+Math.random()*700));return await fn()}throw e}},
   async save(col,rec){
+    if(S.mode==='nocloud'){toast(t('cloudLost'),'err');throw {code:'nocloud'}}
     rec=clone(rec);const arr=S.data[col];const i=arr.findIndex(x=>x.id===rec.id);const prev=i>=0?arr[i]:null;
     if(i>=0)arr[i]=rec;else arr.push(rec);
-    if(this.db){try{await this.db.collection(col).doc(rec.id).set(rec)}catch(e){
+    if(this.db){try{await this._try(()=>this.db.collection(col).doc(rec.id).set(rec))}catch(e){
       if(prev)arr[i]=prev;else arr.splice(arr.indexOf(rec),1);
-      toast(t('saveFailed')+(e&&e.code==='invalid_argument'?' — '+t('permNote'):e&&e.code?' ('+e.code+')':''),'err');throw e}}
+      toast(t('saveFailed')+(e&&e.code==='invalid_argument'?' — '+t('permNote'):e&&e.code==='unavailable'?' — '+t('checkNet'):e&&e.code?' ('+e.code+')':''),'err');throw e}}
     else this.persistLocal();
     return rec;
   },
   async remove(col,id){
+    if(S.mode==='nocloud'){toast(t('cloudLost'),'err');throw {code:'nocloud'}}
     const arr=S.data[col];const i=arr.findIndex(x=>x.id===id);const prev=i>=0?arr[i]:null;if(i>=0)arr.splice(i,1);
-    if(this.db){try{await this.db.collection(col).doc(id).delete()}catch(e){if(prev)arr.splice(i,0,prev);toast(t('saveFailed'),'err');throw e}}
+    if(this.db){try{await this._try(()=>this.db.collection(col).doc(id).delete())}catch(e){if(prev)arr.splice(i,0,prev);toast(t('saveFailed'),'err');throw e}}
     else this.persistLocal();
   }
 };
+/* data left on this device from earlier device-only sessions */
+function pendingLocal(){
+  if(S.mode!=='cloud'||!S.localCache)return null;
+  let dis='';try{dis=localStorage.getItem('ias-local-dismissed')||''}catch(e){}
+  const out={};let n=0;
+  COLS.filter(c=>c!=='settings').forEach(c=>{const ids=new Set(S.data[c].map(x=>x.id));const L=(S.localCache[c]||[]).filter(x=>x&&x.id&&!ids.has(x.id));if(L.length){out[c]=L;n+=L.length}});
+  if(!n)return null;const sig=String(n)+':'+Object.keys(out).join(',');if(dis===sig)return null;
+  return {cols:out,n,sig};
+}
+const COL_LBL={customers:'customers',suppliers:'suppliers',items:'items',sales:'list-sale',salesReturns:'list-salesReturn',issues:'list-issue',purchases:'list-purchase',purchaseReturns:'list-purchaseReturn',vouchers:'voucherList',counts:'countHistory'};
+function openMigrate(){
+  const P=pendingLocal();if(!P)return;
+  const typeOf=c=>Object.keys(DOCS).find(k=>DOCS[k].col===c);
+  const sample=(c,L)=>L.slice(0,4).map(x=>{const ty=typeOf(c);return ty?docNo(ty,x)+' · '+(x.date||''):c==='vouchers'?((x.kind==='receipt'?'RV-':'PV-')+pad(x.no)):(x.name||x.date||'')}).join('، ')+(L.length>4?' …':'');
+  openModal(`<div class="mh"><h3>${t('migTitle')}</h3><button class="btn icon ghost" data-act="close">✕</button></div><div class="mb">
+   <p style="margin-top:0">${t('migIntro')}</p>
+   <div class="grid" style="gap:8px">${Object.entries(P.cols).map(([c,L])=>`<label class="mig-row"><span class="sw"><input type="checkbox" data-mig="${c}" checked><i></i></span><div><b>${t(COL_LBL[c]||c)} <span class="tag">${L.length}</span></b><div class="small muted">${h(sample(c,L))}</div></div></label>`).join('')}</div>
+   <p class="small muted">${t('migNote')}</p></div>
+   <div class="mf"><button class="btn" id="migSkip">${t('migSkip')}</button><button class="btn primary" id="migGo">${ic('up')}${t('migGo')}</button></div>`);
+  $('#migSkip').onclick=()=>{try{localStorage.setItem('ias-local-dismissed',P.sig)}catch(e){}closeModal();render()};
+  $('#migGo').onclick=async()=>{const btn=$('#migGo');btn.disabled=true;let done=0;
+    const chosen=$$('[data-mig]').filter(x=>x.checked).map(x=>x.dataset.mig);
+    try{for(const c of chosen){for(const rec0 of P.cols[c]){const rec=clone(rec0);
+        const ty=typeOf(c);
+        if(ty&&S.data[c].some(x=>+x.no===+rec.no))rec.no=nextNo(c);
+        if(c==='vouchers'&&S.data.vouchers.some(x=>x.kind===rec.kind&&+x.no===+rec.no))rec.no=nextVNo(rec.kind);
+        if(c==='counts'&&S.data.counts.some(x=>+x.no===+rec.no))rec.no=nextNo('counts');
+        if(c==='items'&&S.data.items.some(x=>x.code&&x.code===rec.code))rec.code=nextItemCode();
+        await Store.save(c,rec);done++;btn.textContent=t('migGo')+' '+done}}
+      try{localStorage.setItem('ias-data-v1-uploaded-'+Date.now(),localStorage.getItem('ias-data-v1')||'');localStorage.removeItem('ias-data-v1')}catch(e){}
+      S.localCache=null;closeModal();toast(t('migDone')+' ('+done+')','ok');render();
+    }catch(e){btn.disabled=false;toast(t('saveFailed'),'err')}};
+}
+window.addEventListener('offline',()=>{S.offline=true;toast(t('offlineNow'),'err');const c=$('#syncChip');c&&(c.className='sync-chip off')});
+window.addEventListener('online',()=>{S.offline=false;toast(t('onlineNow'),'ok');const c=$('#syncChip');c&&(c.className='sync-chip '+S.mode)});
 let rq=null;
 function scheduleRender(){if(rq)return;rq=setTimeout(()=>{rq=null;if(!S.user){if(!$('#loginForm'))render();return}if(isFormRoute()&&S.dirty)return;if($('#modal-root').innerHTML)return;render()},120)}
 const isFormRoute=()=>['doc','itemForm','stockCount','receipt','payment','settings','statement'].includes(S.route);
@@ -811,7 +857,7 @@ truck:'<path d="M2 6h11v10H2z"/><path d="M13 9h4l4 4v3h-8"/><circle cx="6" cy="1
 gear:'<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 00.3 1.8l.1.1a2 2 0 11-2.8 2.8l-.1-.1a1.7 1.7 0 00-1.8-.3 1.7 1.7 0 00-1 1.5V21a2 2 0 11-4 0v-.1a1.7 1.7 0 00-1.1-1.5 1.7 1.7 0 00-1.8.3l-.1.1a2 2 0 11-2.8-2.8l.1-.1a1.7 1.7 0 00.3-1.8 1.7 1.7 0 00-1.5-1H3a2 2 0 110-4h.1a1.7 1.7 0 001.5-1.1 1.7 1.7 0 00-.3-1.8l-.1-.1a2 2 0 112.8-2.8l.1.1a1.7 1.7 0 001.8.3H9a1.7 1.7 0 001-1.5V3a2 2 0 114 0v.1a1.7 1.7 0 001 1.5 1.7 1.7 0 001.8-.3l.1-.1a2 2 0 112.8 2.8l-.1.1a1.7 1.7 0 00-.3 1.8V9a1.7 1.7 0 001.5 1H21a2 2 0 110 4h-.1a1.7 1.7 0 00-1.5 1z"/>',
 out:'<path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/>',
 globe:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 010 18M12 3a14 14 0 000 18"/>',
-menu:'<path d="M4 6h16M4 12h16M4 18h16"/>',phone:'<rect x="7" y="2" width="10" height="20" rx="2.5"/><path d="M11 18h2"/>',clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',tag:'<path d="M3 12V4h8l10 10-8 8z"/><circle cx="7.5" cy="7.5" r="1.5"/>',layers:'<path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/>',percent:'<path d="M19 5L5 19"/><circle cx="7" cy="7" r="2.5"/><circle cx="17" cy="17" r="2.5"/>',check:'<path d="M5 12.5l4.5 4.5L19 7"/>',panel:'<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M15 4v16"/><path d="M10 10l-2 2 2 2"/>',search:'<circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/>',plus:'<path d="M12 5v14M5 12h14"/>',
+menu:'<path d="M4 6h16M4 12h16M4 18h16"/>',phone:'<rect x="7" y="2" width="10" height="20" rx="2.5"/><path d="M11 18h2"/>',clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',tag:'<path d="M3 12V4h8l10 10-8 8z"/><circle cx="7.5" cy="7.5" r="1.5"/>',layers:'<path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/>',percent:'<path d="M19 5L5 19"/><circle cx="7" cy="7" r="2.5"/><circle cx="17" cy="17" r="2.5"/>',check:'<path d="M5 12.5l4.5 4.5L19 7"/>',cloud:'<path d="M7 18h10.5a4 4 0 00.6-7.95A6 6 0 006.6 9.2 4.4 4.4 0 007 18z"/>',panel:'<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M15 4v16"/><path d="M10 10l-2 2 2 2"/>',search:'<circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/>',plus:'<path d="M12 5v14M5 12h14"/>',
 pdf:'<path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5"/><path d="M9 15h6M9 18h4"/>',
 wa:'<path d="M3 21l1.7-4.6A8.5 8.5 0 1112 20.5a8.4 8.4 0 01-4.3-1.2z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-1 .8a4 4 0 01-1.8-1.8l.8-1-1-2z"/>',
 trash:'<path d="M4 7h16"/><path d="M10 11v6M14 11v6"/><path d="M6 7l1 13h10l1-13"/><path d="M9 7V4h6v3"/>',
@@ -871,6 +917,7 @@ function shellHtml(body){
   <div class="main-wrap"><header class="top">
     <button class="btn icon ghost menu-btn" data-act="menu" title="${t('showMenu')}" aria-label="${t('showMenu')}">${ic('menu')}</button>
     <div><h1>${h(title)}</h1>${grp?`<div class="crumb">${h(grp)}</div>`:''}</div><div class="sp"></div>
+    <span id="syncChip" class="sync-chip ${S.offline?'off':S.mode}" title="${S.mode==='cloud'?t('storageCloud'):t('storageLocal')}">${ic('cloud')}<span class="hide-sm">${S.offline?t('syncOff'):S.mode==='cloud'?t('syncCloud'):t('syncLocal')}</span></span>
     <button class="btn sm" data-act="lang">${ic('globe')}${t('lang')}</button>
     <span class="hide-sm muted small">${h(S.user.name)}</span>
     <button class="btn sm" data-act="logout">${ic('out')}<span class="hide-sm">${t('logout')}</span></button>
@@ -886,7 +933,8 @@ function loginHtml(){
    <label class="fld"><span>${t('username')}</span><input id="lu" autocomplete="username" required></label>
    <label class="fld"><span>${t('password')}</span><input id="lp" type="password" autocomplete="current-password" required></label>
    <div class="err" id="lerr"></div>
-   <button class="btn primary" id="lbtn" ${S.ready?'':'disabled'}>${S.ready?t('signIn'):t('loadingData')}</button>
+   ${S.mode==='nocloud'?`<div class="alert" style="margin:0">${ic('alert')}<div>${t('cloudFail')}</div></div><div class="row"><button type="button" class="btn primary" data-act="retryCloud" style="flex:1">${t('retry')}</button><button type="button" class="btn" data-act="useLocal" style="flex:1">${t('useLocal')}</button></div>`:
+   `<button class="btn primary" id="lbtn" ${S.ready?'':'disabled'}>${S.ready?t('signIn'):(S.mode==='connecting'?t('cloudConnecting'):t('loadingData'))}</button>`}
    ${S.ready&&noUsers?`<div class="hint">${t('defaultHint')}</div>`:''}
    <div class="small muted" style="display:flex;gap:6px;align-items:center"><span class="dot ${S.mode}"></span>${S.ready?(S.mode==='cloud'?t('storageCloud'):t('storageLocal')):''}</div>
   </form></div></div>`;
@@ -1055,6 +1103,7 @@ PAGES.dashboard={html(){
   return `<div class="pg-head"><div><h2>${t('hello')}${isAr()?'، ':', '}${h(S.user.name)}</h2><p>${h(dstr)} · ${h(coName())}</p></div><div class="row"><button class="btn hide-sm" data-go="doc-purchase">${ic('truck')}${t('doc-purchase')}</button><button class="btn primary" data-go="doc-sale">${ic('plus')}${t('doc-sale')}</button></div></div>
   ${S.user.isDefault?`<div class="alert">${ic('alert')}${t('changeDefault')} <a data-go="settings" style="cursor:pointer;font-weight:700">${t('settings')}</a></div>`:''}
   ${S.mode==='local'?`<div class="alert info">${ic('alert')}${t('localNote')}</div>`:''}
+  ${(()=>{const P=pendingLocal();return P?`<div class="alert mig-banner">${ic('up')}<div style="flex:1">${t('migBanner').replace('{n}',P.n)}</div><button class="btn sm primary" data-act="migrate">${t('migReview')}</button></div>`:''})()}
   <div class="kpis">${kp('','cart',t('todaySales'),money(tSales))}${kp('','up',t('monthSales'),money(mSales))}${kp('g','truck',t('monthPurch'),money(mPur))}${kp('s','cash',t('cashBox'),money(cashBalance()))}
   ${kp('','users',t('receivables'),money(rec))}${kp('g','users',t('payables'),money(pay))}${kp('o','box',t('itemsCount'),S.data.items.length)}${kp(low.length?'r':'o','alert',t('lowStock'),low.length)}</div>
   <div class="dash"><div><div class="card"><div class="between"><h3>${t('last7')}</h3><div class="row small"><span><span class="dot" style="background:linear-gradient(#1f8a78,#0a3531)"></span> ${t('sales')}</span><span><span class="dot" style="background:linear-gradient(#f0d791,#b08632)"></span> ${t('purchases')}</span></div></div>
@@ -1579,6 +1628,9 @@ const ACT={
   addUnit(){S.itemDraft.units.push({name:'',factor:'',price:'',cost:''});render();const n=$$('[data-iu$=":name"]').pop();n&&n.focus()},
   rmUnit(el){S.itemDraft.units.splice(+el.dataset.i,1);render()},
   saveItem(){saveItem()},
+  async retryCloud(){S.mode='connecting';render();await Store.init();if(S.ready){loadSession();if(S.user&&S.user.isDefault&&(settings().users||[]).length)S.user=null}render()},
+  useLocal(){Store.loadLocal();S.mode='local';S.ready=true;render()},
+  migrate(){openMigrate()},
   setTaxMode(el){const d=S.itemDraft;if(!d)return;const m=el.dataset.m;d.taxable=m!=='exempt';d.taxIncl=m==='incl'?'1':'0';if(d.taxable&&!(+d.taxRate))d.taxRate=+settings().taxRate||10;render()},
   itemMove(el){const type=el.dataset.type;const d=byId(DOCS[type].col,el.dataset.id);if(d){closeModal();openDoc(type,d)}},
   bulkTax(){const n=S.data.items.length;const ex=S.data.items.filter(i=>i.taxable===false).length;
