@@ -668,7 +668,7 @@ preparedBy:['المحاسب','Prepared by'],receivedBy:['المستلم','Receiv
 itemsSummary:['ملخص الأصناف','Items summary'],lines:['الأصناف','Lines'],wa_msg_doc:['مرفق','Attached'],permNote:['لا تملك صلاحية التعديل على هذه البيانات','You don\'t have permission to edit this data'],
 role:['الصلاحية','Role'],admin:['مدير','Admin'],staff:['موظف','Staff'],you:['أنت','You'],passChanged:['تم تغيير كلمة المرور','Password changed'],
 userExists:['اسم المستخدم موجود مسبقاً','Username already exists'],fillReq:['يرجى تعبئة الحقول المطلوبة','Please fill in the required fields'],
-cashNote:['البيع النقدي يُسدَّد بالكامل','Cash sales are paid in full'],paidFull:['مدفوعة بالكامل','Paid in full'],noPerm:['هذه الصفحة للمدير فقط','Admin only'],staff:['كاشير / موظف','Cashier / staff'],roleHint:['الكاشير: المبيعات والصرف والمرتجعات وسند القبض والعملاء وإقفال اليوم — بدون حذف أو تعديل مستندات محفوظة أو مشتريات أو إعدادات.','Cashier: sales, issues, returns, receipts, customers and day close — no deleting, no editing saved documents, no purchases or settings.'],
+cashNote:['البيع النقدي يُسدَّد بالكامل','Cash sales are paid in full'],paidFull:['مدفوعة بالكامل','Paid in full'],noPerm:['هذه الصفحة للمدير فقط','Admin only'],owner:['المدير الأساسي','Owner'],ownerHidden:['حسابك مخفي عن باقي المستخدمين، ولا يمكن لأحد غيرك تعديله أو حذفه.','Your account is hidden from other users; only you can edit it.'],ownerLocked:['لا يمكن تعديل حساب المدير الأساسي','The owner account cannot be changed'],staff:['كاشير / موظف','Cashier / staff'],roleHint:['الكاشير: المبيعات والصرف والمرتجعات وسند القبض والعملاء وإقفال اليوم — بدون حذف أو تعديل مستندات محفوظة أو مشتريات أو إعدادات.','Cashier: sales, issues, returns, receipts, customers and day close — no deleting, no editing saved documents, no purchases or settings.'],
 faTitle:['أنشئ حساب المدير','Create the admin account'],faIntro:['أنت تستخدم الدخول الافتراضي admin/admin، وهو معروف للجميع. أنشئ اسم مستخدم وكلمة مرور خاصة بك قبل المتابعة.','You are using the default admin/admin login, which anyone can guess. Create your own username and password to continue.'],confirmPass:['تأكيد كلمة المرور','Confirm password'],passMismatch:['كلمتا المرور غير متطابقتين','Passwords do not match'],passShort:['كلمة المرور 6 أحرف على الأقل','Password must be at least 6 characters'],faSave:['إنشاء الحساب والمتابعة','Create account and continue'],
 reports:['التقارير','Reports'],profit:['تقرير الأرباح','Profit report'],dailyClose:['إقفال اليوم','Day close'],expenses:['المصروفات','Expenses'],audit:['سجل التعديلات','Activity log'],
 netSales:['صافي المبيعات','Net sales'],cogs:['تكلفة المبيعات','Cost of sales'],grossProfit:['مجمل الربح','Gross profit'],netProfit:['صافي الربح','Net profit'],margin:['الهامش','Margin'],avgCost:['متوسط التكلفة','Average cost'],byItem:['حسب الصنف','By item'],byInvoice:['حسب الفاتورة','By invoice'],soldQty:['الكمية المباعة','Qty sold'],revenue:['الإيراد','Revenue'],profitNote:['التكلفة = متوسط سعر الشراء المرجّح لكل صنف (قبل الضريبة)، وإن لم توجد مشتريات فسعر الشراء في بطاقة الصنف. المرتجعات تُخصم.','Cost = weighted average purchase price per item (before tax), or the item card cost if there are no purchases. Returns are deducted.'],returnsW:['المرتجعات','Returns'],
@@ -928,6 +928,7 @@ function render(){
   document.documentElement.lang=S.lang;document.documentElement.dir=isAr()?'rtl':'ltr';
   document.title=t('app')+' — '+t('tagline');
   const app=$('#app');
+  if(S.user&&!S.user.isDefault&&S.ready){const su=(settings().users||[]).find(x=>x.u===S.user.u);if(!su){S.user=null;saveSession()}else if(su.role!==S.user.role||(su.name&&su.name!==S.user.name)){S.user=Object.assign({},S.user,{role:su.role||'staff',name:su.name||S.user.name});saveSession()}}
   if(!S.user){app.innerHTML=loginHtml();bindLogin();return}
   if(!canSee(navKey())){S.route='dashboard';S.param=null}
   const P=PAGES[S.route]||PAGES.dashboard;
@@ -1260,7 +1261,7 @@ const PAGE_HERO={
   stockCount:()=>{const C=S.data.counts.slice().sort((a,b)=>b.date.localeCompare(a.date));const last=C[0];const st=stockMap();let v=0;S.data.items.forEach(i=>v+=st[i.id]*(+i.cost||0));
     return statHero({icon:'clip',chip:t('stockCount'),sub:t('lastCount'),title:last?last.date+' · CNT-'+pad(last.no):'—',big:fmt(v),bigSub:cur()+' · '+t('stockValue'),stats:[[S.data.items.length,t('nItems')],[C.length,t('countsDone')],[last?(last.lines||[]).length:0,t('diff')]]})},
   settings:()=>{const s=settings();return statHero({icon:'gear',chip:t('company'),sub:s.address||t('address'),title:coName(),big:cur(),bigSub:t('currencyEn').replace(/\s*\(.*\)/,''),
-    stats:[s.phone?[s.phone,t('phone')]:null,s.whatsapp?[s.whatsapp,t('waShort')]:null,s.taxNo?[s.taxNo,t('taxNo')]:null,[(s.users||[]).length||1,t('usersN')]],logo:s.logo?`<img class="dh-logo" src="${h(s.logo)}" alt="">`:''})},
+    stats:[s.phone?[s.phone,t('phone')]:null,s.whatsapp?[s.whatsapp,t('waShort')]:null,s.taxNo?[s.taxNo,t('taxNo')]:null,[visibleUsers().length||1,t('usersN')]],logo:s.logo?`<img class="dh-logo" src="${h(s.logo)}" alt="">`:''})},
 };
 function updateDocTotals(){paintDocHero();const d=S.draft;if(!d)return;const cfg=DOCS[d.type];const T=docTotals(d);
   d.lines.forEach((l,i)=>{const c=$(`[data-lt="${i}"]`);if(c)c.textContent=fmt((+l.qty||0)*(+l.price||0))});
@@ -1597,7 +1598,7 @@ function openCount(x){const html=repHtml({title:t('countDoc'),meta:[[t('no'),'CN
 
 /* ---- settings ---- */
 PAGES.settings={html(){
-  const s=settings();const isAdmin=S.user.role==='admin';
+  const s=settings();const isAdmin=window.isAdmin();
   return `<div class="pg-head"><div><h2>${t('settings')}</h2></div><div class="seg"><button class="${isAr()?'on':''}" data-act="setLang" data-l="ar">العربية</button><button class="${!isAr()?'on':''}" data-act="setLang" data-l="en">English</button></div></div>
   <form class="card" id="sForm"><h3>${t('company')}</h3><div class="grid g3">
    ${fld(t('companyAr'),`<input name="company" value="${h(s.company)}">`)}${fld(t('companyEn'),`<input name="companyEn" value="${h(s.companyEn)}">`)}${fld(t('phone'),`<input name="phone" dir="ltr" value="${h(s.phone)}">`)}
@@ -1615,12 +1616,12 @@ PAGES.settings={html(){
   </div><div class="row end" style="margin-top:16px"><button class="btn primary" ${isAdmin?'':'disabled'}>${t('save')}</button></div></form>
   <div class="card"><div class="between" style="margin-bottom:12px"><h3 style="margin:0">${t('users')}</h3>${isAdmin?`<button class="btn sm primary" data-act="userForm">${ic('plus')}${t('addUser')}</button>`:''}</div>
    <div class="tbl-wrap"><table class="t"><thead><tr><th>${t('username')}</th><th>${t('fullName')}</th><th>${t('role')}</th><th></th></tr></thead><tbody>
-   ${(s.users||[]).length?(s.users||[]).map(u=>`<tr><td dir="ltr" style="text-align:start"><b>${h(u.u)}</b> ${u.u===S.user.u?`<span class="tag">${t('you')}</span>`:''}</td><td>${h(u.name)}</td><td>${t(u.role||'staff')}</td><td class="n"><div class="row" style="justify-content:flex-end">${(isAdmin||u.u===S.user.u)?`<button class="btn sm" data-act="userForm" data-u="${h(u.u)}">${ic('pen')}${t('changePass')}</button>`:''}${isAdmin&&u.u!==S.user.u?`<button class="btn sm icon" data-act="userDel" data-u="${h(u.u)}">${ic('trash')}</button>`:''}</div></td></tr>`).join(''):`<tr><td dir="ltr" style="text-align:start"><b>admin</b></td><td>${t('admin')}</td><td>${t('admin')}</td><td class="n"><span class="tag warn">admin / admin</span></td></tr>`}
-   </tbody></table></div><p class="small muted" style="margin-bottom:0">${t('roleHint')}</p></div>
+   ${(s.users||[]).length?visibleUsers().map(u=>`<tr><td dir="ltr" style="text-align:start"><b>${h(u.u)}</b> ${u.u===S.user.u?`<span class="tag">${t('you')}</span>`:''}</td><td>${h(u.name)}</td><td>${u.role==='owner'?`<span class="tag gold">${t('owner')}</span>`:t(u.role||'staff')}</td><td class="n"><div class="row" style="justify-content:flex-end">${((isAdmin&&u.role!=='owner')||u.u===S.user.u)?`<button class="btn sm" data-act="userForm" data-u="${h(u.u)}">${ic('pen')}${t('changePass')}</button>`:''}${isAdmin&&u.u!==S.user.u&&u.role!=='owner'?`<button class="btn sm icon" data-act="userDel" data-u="${h(u.u)}">${ic('trash')}</button>`:''}</div></td></tr>`).join(''):`<tr><td dir="ltr" style="text-align:start"><b>admin</b></td><td>${t('admin')}</td><td>${t('admin')}</td><td class="n"><span class="tag warn">admin / admin</span></td></tr>`}
+   </tbody></table></div><p class="small muted" style="margin-bottom:0">${t('roleHint')}${isOwner()?'<br>'+t('ownerHidden'):''}</p></div>
   ${isAdmin?`<div class="card"><h3>${t('backup')}</h3><div class="row"><button class="btn" data-act="exportJson">${ic('down')}${t('exportJson')}</button>${isAdmin?`<label class="btn">${ic('up')}${t('importJson')}<input type="file" accept=".json,application/json" id="impFile" class="hidden"></label>`:''}</div>
    <p class="small muted" style="margin-bottom:0"><span class="dot ${S.mode}"></span> ${S.mode==='cloud'?t('storageCloud'):t('localNote')}${s.lastBackup?` · ${t('lastBackup')}: <b>${h(s.lastBackup)}</b>`:''}</p></div>`:''}`;
 },mount(){
-  const fm=$('#sForm');fm.onsubmit=async e=>{e.preventDefault();if(S.user.role!=='admin')return;const fd=Object.fromEntries(new FormData(fm));const cur0=S.data.settings.find(x=>x.id==='main')||{id:'main',users:[]};
+  const fm=$('#sForm');fm.onsubmit=async e=>{e.preventDefault();if(!isAdmin())return;const fd=Object.fromEntries(new FormData(fm));const cur0=S.data.settings.find(x=>x.id==='main')||{id:'main',users:[]};
     const rec=Object.assign({},cur0,{id:'main',company:fd.company.trim()||DEF.company,companyEn:fd.companyEn.trim(),phone:fd.phone.trim(),whatsapp:(fd.whatsapp||'').trim(),logo:S.logoDraft!==undefined?S.logoDraft:(cur0.logo||''),address:fd.address.trim(),taxNo:fd.taxNo.trim(),cc:fd.cc.replace(/\D/g,''),currency:fd.currency.trim(),currencyEn:fd.currencyEn.trim(),decimals:Math.min(4,Math.max(0,parseInt(fd.decimals)||0)),taxRate:+fd.taxRate||0,taxOn:fd.taxOn==='on',itemTaxable:fd.itemTaxable==='on',blockNeg:fd.blockNeg==='on',expCats:String(fd.expCats||'').split(/[,،]/).map(x=>x.trim()).filter(Boolean)});
     try{await Store.save('settings',rec)}catch(err){return}S.logoDraft=undefined;toast(t('saved'),'ok');render()};
   const lf=$('#logoFile');if(lf)lf.onchange=async e=>{const f=e.target.files[0];if(!f)return;try{S.logoDraft=await shrinkImage(f,360);paintLogo()}catch(err){toast(t('logoBad'),'err')}e.target.value=''};
@@ -1628,28 +1629,30 @@ PAGES.settings={html(){
     S.noLog=true;for(const col of COLS){if(!Array.isArray(o[col]))continue;for(const rec of o[col]){if(rec&&rec.id)await Store.save(col,rec)}}S.noLog=false;toast(t('importDone'),'ok');render()}catch(err){S.noLog=false;toast(t('saveFailed'),'err')}};
 }};
 function userForm(uname){
-  const s=settings();const users=s.users||[];const u=uname?users.find(x=>x.u===uname):null;const isAdmin=S.user.role==='admin';
+  const s=settings();const users=s.users||[];const u=uname?users.find(x=>x.u===uname):null;const isAdmin=window.isAdmin();if(u&&u.role==='owner'&&u.u!==S.user.u)return toast(t('ownerLocked'),'err');
   openModal(`<div class="mh"><h3>${u?t('changePass'):t('addUser')}</h3><button class="btn icon ghost" data-act="close">✕</button></div><form id="uForm"><div class="mb"><div class="grid g2">
    ${fld(t('username'),`<input name="u" dir="ltr" required value="${h(u?u.u:'')}" ${u?'readonly':''}>`,1)}${fld(t('fullName'),`<input name="name" value="${h(u?u.name:'')}">`)}
    ${fld(u?t('newPass'):t('password'),`<input name="p" type="password" required minlength="4" autocomplete="new-password">`,1)}
-   ${fld(t('role'),`<select name="role" ${isAdmin&&(!u||u.u!==S.user.u)?'':'disabled'}>${opt('admin',t('admin'),u?u.role:'staff')}${opt('staff',t('staff'),u?u.role:'staff')}</select>`)}
+   ${fld(t('role'),`<select name="role" ${isAdmin&&(!u||u.u!==S.user.u)&&!(u&&u.role==='owner')?'':'disabled'}>${u&&u.role==='owner'?opt('owner',t('owner'),'owner'):''}${opt('admin',t('admin'),u?u.role:'staff')}${opt('staff',t('staff'),u?u.role:'staff')}</select>`)}
   </div></div><div class="mf"><button type="button" class="btn" data-act="close">${t('cancel')}</button><button class="btn primary">${t('save')}</button></div></form>`);
   $('#uForm').onsubmit=async e=>{e.preventDefault();const fd=Object.fromEntries(new FormData(e.target));const name=fd.u.trim().toLowerCase();if(!name||!fd.p)return toast(t('fillReq'),'err');
     const cur0=clone(S.data.settings.find(x=>x.id==='main')||Object.assign({id:'main'},DEF));let list=cur0.users||[];
     if(!u&&list.some(x=>x.u===name))return toast(t('userExists'),'err');
     const hsh=await hashPw(fd.p);
-    if(u)list=list.map(x=>x.u===name?Object.assign({},x,{name:fd.name.trim()||x.name,h:hsh,role:fd.role||x.role}):x);
+    if(u)list=list.map(x=>x.u===name?Object.assign({},x,{name:fd.name.trim()||x.name,h:hsh,role:x.role==='owner'?'owner':(fd.role||x.role)}):x);
     else list.push({u:name,name:fd.name.trim()||name,h:hsh,role:fd.role||(list.length?'staff':'admin')});
-    if(!list.some(x=>x.role==='admin'))list[0].role='admin';
+    if(!list.some(x=>x.role==='admin'||x.role==='owner'))list[0].role='admin';
     cur0.users=list;try{await Store.save('settings',cur0)}catch(err){return}
-    if(S.user.isDefault){const me=list.find(x=>x.role==='admin');S.user={u:me.u,name:me.name,role:'admin'};saveSession()}
+    if(S.user.isDefault){const me=list.find(x=>x.role==='admin'||x.role==='owner');S.user={u:me.u,name:me.name,role:me.role};saveSession()}
     closeModal();toast(u?t('passChanged'):t('saved'),'ok');render()};
 }
 
 /* ===================== roles & first admin ===================== */
 const STAFF_OK=new Set(['dashboard','doc-sale','list-sale','doc-issue','list-issue','doc-salesReturn','list-salesReturn','receipt','customers','custBalances','statement','items','dailyClose','settings']);
-function isAdmin(){return !!(S.user&&S.user.role==='admin')}
-function canSee(k){return !S.user||isAdmin()||STAFF_OK.has(k)}
+function isOwner(){return !!(S.user&&S.user.role==='owner')}
+function isAdmin(){return !!(S.user&&(S.user.role==='admin'||S.user.role==='owner'))}
+const visibleUsers=()=>(settings().users||[]).filter(u=>u.role!=='owner'||(S.user&&S.user.u===u.u));
+function canSee(k){return !S.user||isOwner()||isAdmin()||STAFF_OK.has(k)}
 function firstAdminForm(){
   openModal(`<div class="lock"></div><div class="mh"><h3>${t('faTitle')}</h3><button class="btn sm" data-act="logout">${ic('out')}${t('logout')}</button></div><form id="faForm"><div class="mb">
    <p style="margin-top:0">${t('faIntro')}</p><div class="grid g2">
@@ -1659,9 +1662,9 @@ function firstAdminForm(){
   $('#faForm').onsubmit=async e=>{e.preventDefault();const fd=Object.fromEntries(new FormData(e.target));const u=fd.u.trim().toLowerCase();
     if(fd.p.length<6)return $('#faErr').textContent=t('passShort');if(fd.p!==fd.p2)return $('#faErr').textContent=t('passMismatch');if(u==='admin'&&fd.p==='admin')return $('#faErr').textContent=t('passShort');
     const cur0=clone(S.data.settings.find(x=>x.id==='main')||Object.assign({id:'main'},DEF));cur0.id='main';
-    cur0.users=[{u,name:fd.name.trim()||u,h:await hashPw(fd.p),role:'admin'}];
+    cur0.users=[{u,name:fd.name.trim()||u,h:await hashPw(fd.p),role:'owner'}];
     try{await Store.save('settings',cur0)}catch(err){return}
-    S.user={u,name:cur0.users[0].name,role:'admin'};saveSession();closeModal();toast(t('saved'),'ok');render()};
+    S.user={u,name:cur0.users[0].name,role:'owner'};saveSession();closeModal();toast(t('saved'),'ok');render()};
   setTimeout(()=>{const n=$('#faForm [name=u]');n&&n.focus()},40);
 }
 
@@ -1911,7 +1914,7 @@ const ACT={
   countSheet(){const st=stockMap();const list=S.data.items.slice().sort((a,b)=>(a.code||'').localeCompare(b.code||'',undefined,{numeric:true}));
     openPreview({title:t('countSheet'),html:repHtml({title:t('countSheet'),meta:[[t('date'),today()],[t('count'),list.length]],tables:[{cols:[{h:'#'},{h:t('code')},{h:t('name')},{h:t('unit')},{h:t('systemQty'),n:1},{h:t('actualQty')},{h:t('notes')}],rows:list.map((i,n)=>[n+1,i.code||'',iName(i),i.unit||'',fq(st[i.id]),'',''])}]}),filename:t('countSheet')+' '+today()})},
   userForm(el){userForm(el.dataset.u)},
-  async userDel(el){if(!await confirmDlg(t('confirmDel'),1))return;const cur0=clone(S.data.settings.find(x=>x.id==='main'));cur0.users=(cur0.users||[]).filter(x=>x.u!==el.dataset.u);try{await Store.save('settings',cur0);toast(t('deleted'),'ok');render()}catch(e){}},
+  async userDel(el){const tu=(settings().users||[]).find(x=>x.u===el.dataset.u);if(!isAdmin()||(tu&&tu.role==='owner'))return toast(t('ownerLocked'),'err');if(!await confirmDlg(t('confirmDel'),1))return;const cur0=clone(S.data.settings.find(x=>x.id==='main'));cur0.users=(cur0.users||[]).filter(x=>x.u!==el.dataset.u);try{await Store.save('settings',cur0);toast(t('deleted'),'ok');render()}catch(e){}},
   async exportJson(){const o={app:'ibn-alsheikh',version:1,exportedAt:new Date().toISOString()};COLS.forEach(c=>o[c]=S.data[c]);
     try{await saveFile('ibn-alsheikh-backup-'+today()+'.json',JSON.stringify(o,null,1));toast(t('pdfSaved').replace('PDF','JSON'),'ok');markBackup()}catch(e){toast(e&&e.code==='declined'?t('pdfDeclined'):t('saveFailed'),'err')}},
 };
