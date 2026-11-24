@@ -303,6 +303,7 @@ select.need{border-color:var(--ruby)!important;box-shadow:0 0 0 3px rgba(168,50,
 .act-create{background:#e3f6ec;color:#17643f}.act-update{background:#fff3d6;color:#8a5b00}.act-delete{background:#fde5e5;color:#a12020}
 .kpi-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-bottom:16px}.kpi-row>div{min-width:0;padding:14px 16px;border-radius:14px;background:#f6faf8;border:1px solid var(--line)}
 .kpi-row span{display:block;font-size:12.5px;color:#5d6b68}.kpi-row b{font-size:18px;font-family:'El Messiri',serif}.kpi-row .hl{background:linear-gradient(135deg,#0d4a43,#1f8a78);color:#fff;border:0}.kpi-row .hl span{color:#cfe9e2}
+.remember{display:flex;align-items:center;gap:10px;cursor:pointer;font-size:14.5px;color:#3d4b48;margin:2px 0 4px}
 .sync-chip{display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border-radius:20px;font-size:12.5px;font-weight:700;border:1px solid rgba(255,255,255,.18)}
 .sync-chip svg{width:17px;height:17px}
 .sync-chip.cloud{color:#7ff0b4;background:rgba(61,220,132,.12)}
@@ -677,7 +678,7 @@ preparedBy:['المحاسب','Prepared by'],receivedBy:['المستلم','Receiv
 itemsSummary:['ملخص الأصناف','Items summary'],lines:['الأصناف','Lines'],wa_msg_doc:['مرفق','Attached'],permNote:['لا تملك صلاحية التعديل على هذه البيانات','You don\'t have permission to edit this data'],
 role:['الصلاحية','Role'],admin:['مدير','Admin'],staff:['موظف','Staff'],you:['أنت','You'],passChanged:['تم تغيير كلمة المرور','Password changed'],
 userExists:['اسم المستخدم موجود مسبقاً','Username already exists'],fillReq:['يرجى تعبئة الحقول المطلوبة','Please fill in the required fields'],
-cashNote:['البيع النقدي يُسدَّد بالكامل','Cash sales are paid in full'],paidFull:['مدفوعة بالكامل','Paid in full'],noPerm:['هذه الصفحة للمدير فقط','Admin only'],newPassTitle:['اختر كلمة مرور جديدة','Choose a new password'],newPassIntro:['هذه كلمة مرور مؤقتة. اختر كلمة مرور خاصة بك قبل المتابعة.','This is a temporary password. Choose your own password to continue.'],badUser:['اسم المستخدم: 3 أحرف إنجليزية أو أرقام على الأقل، بدون مسافات','Username: at least 3 English letters or digits, no spaces'],owner:['المدير الأساسي','Owner'],ownerHidden:['حسابك مخفي عن باقي المستخدمين، ولا يمكن لأحد غيرك تعديله أو حذفه.','Your account is hidden from other users; only you can edit it.'],ownerLocked:['لا يمكن تعديل حساب المدير الأساسي','The owner account cannot be changed'],staff:['كاشير / موظف','Cashier / staff'],roleHint:['الكاشير: المبيعات والصرف والمرتجعات وسند القبض والعملاء وإقفال اليوم — بدون حذف أو تعديل مستندات محفوظة أو مشتريات أو إعدادات.','Cashier: sales, issues, returns, receipts, customers and day close — no deleting, no editing saved documents, no purchases or settings.'],
+cashNote:['البيع النقدي يُسدَّد بالكامل','Cash sales are paid in full'],paidFull:['مدفوعة بالكامل','Paid in full'],noPerm:['هذه الصفحة للمدير فقط','Admin only'],rememberMe:['تذكّرني على هذا الجهاز','Remember me on this device'],newPassTitle:['اختر كلمة مرور جديدة','Choose a new password'],newPassIntro:['هذه كلمة مرور مؤقتة. اختر كلمة مرور خاصة بك قبل المتابعة.','This is a temporary password. Choose your own password to continue.'],badUser:['اسم المستخدم: 3 أحرف إنجليزية أو أرقام على الأقل، بدون مسافات','Username: at least 3 English letters or digits, no spaces'],owner:['المدير الأساسي','Owner'],ownerHidden:['حسابك مخفي عن باقي المستخدمين، ولا يمكن لأحد غيرك تعديله أو حذفه.','Your account is hidden from other users; only you can edit it.'],ownerLocked:['لا يمكن تعديل حساب المدير الأساسي','The owner account cannot be changed'],staff:['كاشير / موظف','Cashier / staff'],roleHint:['الكاشير: المبيعات والصرف والمرتجعات وسند القبض والعملاء وإقفال اليوم — بدون حذف أو تعديل مستندات محفوظة أو مشتريات أو إعدادات.','Cashier: sales, issues, returns, receipts, customers and day close — no deleting, no editing saved documents, no purchases or settings.'],
 faTitle:['أنشئ حساب المدير','Create the admin account'],faIntro:['أنت تستخدم الدخول الافتراضي admin/admin، وهو معروف للجميع. أنشئ اسم مستخدم وكلمة مرور خاصة بك قبل المتابعة.','You are using the default admin/admin login, which anyone can guess. Create your own username and password to continue.'],confirmPass:['تأكيد كلمة المرور','Confirm password'],passMismatch:['كلمتا المرور غير متطابقتين','Passwords do not match'],passShort:['كلمة المرور 6 أحرف على الأقل','Password must be at least 6 characters'],faSave:['إنشاء الحساب والمتابعة','Create account and continue'],
 reports:['التقارير','Reports'],profit:['تقرير الأرباح','Profit report'],dailyClose:['إقفال اليوم','Day close'],expenses:['المصروفات','Expenses'],audit:['سجل التعديلات','Activity log'],
 netSales:['صافي المبيعات','Net sales'],cogs:['تكلفة المبيعات','Cost of sales'],grossProfit:['مجمل الربح','Gross profit'],netProfit:['صافي الربح','Net profit'],margin:['الهامش','Margin'],avgCost:['متوسط التكلفة','Average cost'],byItem:['حسب الصنف','By item'],byInvoice:['حسب الفاتورة','By invoice'],soldQty:['الكمية المباعة','Qty sold'],revenue:['الإيراد','Revenue'],profitNote:['التكلفة = متوسط سعر الشراء المرجّح لكل صنف (قبل الضريبة)، وإن لم توجد مشتريات فسعر الشراء في بطاقة الصنف. المرتجعات تُخصم.','Cost = weighted average purchase price per item (before tax), or the item card cost if there are no purchases. Returns are deducted.'],returnsW:['المرتجعات','Returns'],
@@ -794,7 +795,7 @@ const Supa={
     S.mode='connecting';S.localCache=null;
     if(!window.supabase)await loadScript('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js');
     if(!window.supabase){S.mode='nocloud';return}
-    Store.sb=window.supabase.createClient(SB_CFG.url,SB_CFG.key,{auth:{persistSession:true,autoRefreshToken:true,storageKey:'ias-sb-auth'}});
+    Store.sb=window.supabase.createClient(SB_CFG.url,SB_CFG.key,{auth:{persistSession:true,autoRefreshToken:true,storageKey:'ias-sb-auth',storage:authStore}});
     S.mode='cloud';S.backend='supa';
     try{const {data}=await Store.sb.auth.getSession();if(data&&data.session){if(!await this.afterLogin(data.session.user)){await Store.sb.auth.signOut();S.user=null}}}catch(e){console.warn(e)}
     S.ready=true;
@@ -936,8 +937,10 @@ async function doLogin(u,p){
   const hp=await hashPw(p);const f=users.find(x=>x.u===u&&x.h===hp);
   if(f){S.user={u:f.u,name:f.name||f.u,role:f.role||'staff'};return true}return false;
 }
-function saveSession(){try{S.user?sessionStorage.setItem('ias-user',JSON.stringify(S.user)):sessionStorage.removeItem('ias-user')}catch(e){}}
-function loadSession(){try{const u=JSON.parse(sessionStorage.getItem('ias-user')||'null');if(u)S.user=u}catch(e){}}
+function remember(){try{return localStorage.getItem('ias-remember')!=='0'}catch(e){return true}}
+function saveSession(){try{sessionStorage.removeItem('ias-user');localStorage.removeItem('ias-user');if(S.user)(remember()?localStorage:sessionStorage).setItem('ias-user',JSON.stringify(S.user))}catch(e){}}
+function loadSession(){try{const u=JSON.parse(sessionStorage.getItem('ias-user')||localStorage.getItem('ias-user')||'null');if(u)S.user=u}catch(e){}}
+const authStore={getItem:k=>{try{return sessionStorage.getItem(k)??localStorage.getItem(k)}catch(e){return null}},setItem:(k,v)=>{try{const a=remember()?localStorage:sessionStorage,b=remember()?sessionStorage:localStorage;a.setItem(k,v);b.removeItem(k)}catch(e){}},removeItem:k=>{try{localStorage.removeItem(k);sessionStorage.removeItem(k)}catch(e){}}};
 
 /* ===================== icons ===================== */
 const IC={
@@ -1032,6 +1035,7 @@ function loginHtml(){
    <div class="sub">${t('loginSub')}</div>
    <label class="fld"><span>${t('username')}</span><input id="lu" autocomplete="username" required></label>
    <label class="fld"><span>${t('password')}</span><input id="lp" type="password" autocomplete="current-password" required></label>
+   <label class="remember"><span class="sw"><input type="checkbox" id="lrem" ${remember()?'checked':''}><i></i></span><span>${t('rememberMe')}</span></label>
    <div class="err" id="lerr"></div>
    ${S.mode==='nocloud'?`<div class="alert" style="margin:0">${ic('alert')}<div>${t('cloudFail')}</div></div><div class="row"><button type="button" class="btn primary" data-act="retryCloud" style="flex:1">${t('retry')}</button><button type="button" class="btn" data-act="useLocal" style="flex:1">${t('useLocal')}</button></div>`:
    `<button class="btn primary" id="lbtn" ${S.ready?'':'disabled'}>${S.ready?t('signIn'):(S.mode==='connecting'?t('cloudConnecting'):t('loadingData'))}</button>`}
@@ -1040,9 +1044,13 @@ function loginHtml(){
   </form></div></div>`;
 }
 function bindLogin(){
+  let last='';try{last=remember()?(localStorage.getItem('ias-last-user')||''):''}catch(e){}
+  if(last){$('#lu').value=last;setTimeout(()=>{const p=$('#lp');p&&p.focus()},60)}
+  $('#lrem').addEventListener('change',e=>{try{localStorage.setItem('ias-remember',e.target.checked?'1':'0');if(!e.target.checked){localStorage.removeItem('ias-last-user');localStorage.removeItem('ias-user');localStorage.removeItem('ias-sb-auth')}}catch(err){}});
   $('#loginForm').addEventListener('submit',async e=>{e.preventDefault();if(!S.ready)return;
+    const rem=$('#lrem').checked;try{localStorage.setItem('ias-remember',rem?'1':'0')}catch(err){}
     const ok=await doLogin($('#lu').value,$('#lp').value);
-    if(ok){saveSession();S.route='dashboard';render()}else $('#lerr').textContent=t('wrongLogin')});
+    if(ok){try{rem?localStorage.setItem('ias-last-user',String($('#lu').value).trim().toLowerCase()):localStorage.removeItem('ias-last-user')}catch(err){}saveSession();S.route='dashboard';render()}else $('#lerr').textContent=t('wrongLogin')});
 }
 
 /* ===================== modal / toast / confirm ===================== */
