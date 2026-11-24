@@ -304,6 +304,10 @@ select.need{border-color:var(--ruby)!important;box-shadow:0 0 0 3px rgba(168,50,
 .kpi-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-bottom:16px}.kpi-row>div{min-width:0;padding:14px 16px;border-radius:14px;background:#f6faf8;border:1px solid var(--line)}
 .kpi-row span{display:block;font-size:12.5px;color:#5d6b68}.kpi-row b{font-size:18px;font-family:'El Messiri',serif}.kpi-row .hl{background:linear-gradient(135deg,#0d4a43,#1f8a78);color:#fff;border:0}.kpi-row .hl span{color:#cfe9e2}
 .remember{display:flex;align-items:center;gap:10px;cursor:pointer;font-size:14.5px;color:#3d4b48;margin:2px 0 4px}
+.pres{display:inline-block;width:11px;height:11px;border-radius:50%;margin-inline-end:8px;vertical-align:middle;background:#c9d1cf}
+.pres.on{background:#22c55e;box-shadow:0 0 0 3px rgba(34,197,94,.22)}
+.pres.off{background:#e5484d;box-shadow:0 0 0 3px rgba(229,72,77,.18)}
+.pres-t{display:block;font-size:11.5px;font-weight:600;margin-top:3px;margin-inline-start:19px}.pres-t.on{color:#15803d}.pres-t.off{color:#b42318}
 .sync-chip{display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border-radius:20px;font-size:12.5px;font-weight:700;border:1px solid rgba(255,255,255,.18)}
 .sync-chip svg{width:17px;height:17px}
 .sync-chip.cloud{color:#7ff0b4;background:rgba(61,220,132,.12)}
@@ -678,7 +682,7 @@ preparedBy:['المحاسب','Prepared by'],receivedBy:['المستلم','Receiv
 itemsSummary:['ملخص الأصناف','Items summary'],lines:['الأصناف','Lines'],wa_msg_doc:['مرفق','Attached'],permNote:['لا تملك صلاحية التعديل على هذه البيانات','You don\'t have permission to edit this data'],
 role:['الصلاحية','Role'],admin:['مدير','Admin'],staff:['موظف','Staff'],you:['أنت','You'],passChanged:['تم تغيير كلمة المرور','Password changed'],
 userExists:['اسم المستخدم موجود مسبقاً','Username already exists'],fillReq:['يرجى تعبئة الحقول المطلوبة','Please fill in the required fields'],
-cashNote:['البيع النقدي يُسدَّد بالكامل','Cash sales are paid in full'],paidFull:['مدفوعة بالكامل','Paid in full'],noPerm:['هذه الصفحة للمدير فقط','Admin only'],rememberMe:['تذكّرني على هذا الجهاز','Remember me on this device'],newPassTitle:['اختر كلمة مرور جديدة','Choose a new password'],newPassIntro:['هذه كلمة مرور مؤقتة. اختر كلمة مرور خاصة بك قبل المتابعة.','This is a temporary password. Choose your own password to continue.'],badUser:['اسم المستخدم: 3 أحرف إنجليزية أو أرقام على الأقل، بدون مسافات','Username: at least 3 English letters or digits, no spaces'],owner:['المدير الأساسي','Owner'],ownerHidden:['حسابك مخفي عن باقي المستخدمين، ولا يمكن لأحد غيرك تعديله أو حذفه.','Your account is hidden from other users; only you can edit it.'],ownerLocked:['لا يمكن تعديل حساب المدير الأساسي','The owner account cannot be changed'],staff:['كاشير / موظف','Cashier / staff'],roleHint:['الكاشير: المبيعات والصرف والمرتجعات وسند القبض والعملاء وإقفال اليوم — بدون حذف أو تعديل مستندات محفوظة أو مشتريات أو إعدادات.','Cashier: sales, issues, returns, receipts, customers and day close — no deleting, no editing saved documents, no purchases or settings.'],
+cashNote:['البيع النقدي يُسدَّد بالكامل','Cash sales are paid in full'],paidFull:['مدفوعة بالكامل','Paid in full'],noPerm:['هذه الصفحة للمدير فقط','Admin only'],online:['متصل الآن','Online'],offline:['غير متصل','Offline'],lastSeen:['آخر ظهور','last seen'],rememberMe:['تذكّرني على هذا الجهاز','Remember me on this device'],newPassTitle:['اختر كلمة مرور جديدة','Choose a new password'],newPassIntro:['هذه كلمة مرور مؤقتة. اختر كلمة مرور خاصة بك قبل المتابعة.','This is a temporary password. Choose your own password to continue.'],badUser:['اسم المستخدم: 3 أحرف إنجليزية أو أرقام على الأقل، بدون مسافات','Username: at least 3 English letters or digits, no spaces'],owner:['المدير الأساسي','Owner'],ownerHidden:['حسابك مخفي عن باقي المستخدمين، ولا يمكن لأحد غيرك تعديله أو حذفه.','Your account is hidden from other users; only you can edit it.'],ownerLocked:['لا يمكن تعديل حساب المدير الأساسي','The owner account cannot be changed'],staff:['كاشير / موظف','Cashier / staff'],roleHint:['الكاشير: المبيعات والصرف والمرتجعات وسند القبض والعملاء وإقفال اليوم — بدون حذف أو تعديل مستندات محفوظة أو مشتريات أو إعدادات.','Cashier: sales, issues, returns, receipts, customers and day close — no deleting, no editing saved documents, no purchases or settings.'],
 faTitle:['أنشئ حساب المدير','Create the admin account'],faIntro:['أنت تستخدم الدخول الافتراضي admin/admin، وهو معروف للجميع. أنشئ اسم مستخدم وكلمة مرور خاصة بك قبل المتابعة.','You are using the default admin/admin login, which anyone can guess. Create your own username and password to continue.'],confirmPass:['تأكيد كلمة المرور','Confirm password'],passMismatch:['كلمتا المرور غير متطابقتين','Passwords do not match'],passShort:['كلمة المرور 6 أحرف على الأقل','Password must be at least 6 characters'],faSave:['إنشاء الحساب والمتابعة','Create account and continue'],
 reports:['التقارير','Reports'],profit:['تقرير الأرباح','Profit report'],dailyClose:['إقفال اليوم','Day close'],expenses:['المصروفات','Expenses'],audit:['سجل التعديلات','Activity log'],
 netSales:['صافي المبيعات','Net sales'],cogs:['تكلفة المبيعات','Cost of sales'],grossProfit:['مجمل الربح','Gross profit'],netProfit:['صافي الربح','Net profit'],margin:['الهامش','Margin'],avgCost:['متوسط التكلفة','Average cost'],byItem:['حسب الصنف','By item'],byInvoice:['حسب الفاتورة','By invoice'],soldQty:['الكمية المباعة','Qty sold'],revenue:['الإيراد','Revenue'],profitNote:['التكلفة = متوسط سعر الشراء المرجّح لكل صنف (قبل الضريبة)، وإن لم توجد مشتريات فسعر الشراء في بطاقة الصنف. المرتجعات تُخصم.','Cost = weighted average purchase price per item (before tax), or the item card cost if there are no purchases. Returns are deducted.'],returnsW:['المرتجعات','Returns'],
@@ -1003,6 +1007,7 @@ function render(){
   app.innerHTML=shellHtml(body);
   P.mount&&P.mount();
   try{const hf=PAGE_HERO[navKey()];const ph=$('#main > .pg-head');if(hf&&ph)ph.insertAdjacentHTML('afterend',`<div class="dhero">${hf()}</div>`)}catch(e){console.error(e)}
+  Presence.start();paintPresence();
   if(S.user.isDefault&&!$('#faForm'))firstAdminForm();
   else if(S.mustChange&&Store.sb&&!$('#pwForm'))forcePwForm();
 }
@@ -1689,7 +1694,7 @@ PAGES.settings={html(){
   </div><div class="row end" style="margin-top:16px"><button class="btn primary" ${isAdmin?'':'disabled'}>${t('save')}</button></div></form>
   <div class="card"><div class="between" style="margin-bottom:12px"><h3 style="margin:0">${t('users')}</h3>${isAdmin?`<button class="btn sm primary" data-act="userForm">${ic('plus')}${t('addUser')}</button>`:''}</div>
    <div class="tbl-wrap"><table class="t"><thead><tr><th>${t('username')}</th><th>${t('fullName')}</th><th>${t('role')}</th><th></th></tr></thead><tbody>
-   ${(s.users||[]).length?visibleUsers().map(u=>`<tr><td dir="ltr" style="text-align:start"><b>${h(u.u)}</b> ${u.u===S.user.u?`<span class="tag">${t('you')}</span>`:''}</td><td>${h(u.name)}</td><td>${u.role==='owner'?`<span class="tag gold">${t('owner')}</span>`:t(u.role||'staff')}</td><td class="n"><div class="row" style="justify-content:flex-end">${((isAdmin&&u.role!=='owner')||u.u===S.user.u)?`<button class="btn sm" data-act="userForm" data-u="${h(u.u)}">${ic('pen')}${t('changePass')}</button>`:''}${isAdmin&&u.u!==S.user.u&&u.role!=='owner'?`<button class="btn sm icon" data-act="userDel" data-u="${h(u.u)}">${ic('trash')}</button>`:''}</div></td></tr>`).join(''):`<tr><td dir="ltr" style="text-align:start"><b>admin</b></td><td>${t('admin')}</td><td>${t('admin')}</td><td class="n"><span class="tag warn">admin / admin</span></td></tr>`}
+   ${(s.users||[]).length?visibleUsers().map(u=>`<tr><td dir="ltr" style="text-align:start"><span class="pres" data-pres="${h(u.u)}"></span><b>${h(u.u)}</b> ${u.u===S.user.u?`<span class="tag">${t('you')}</span>`:''}<span data-pres-t="${h(u.u)}"></span></td><td>${h(u.name)}</td><td>${u.role==='owner'?`<span class="tag gold">${t('owner')}</span>`:t(u.role||'staff')}</td><td class="n"><div class="row" style="justify-content:flex-end">${((isAdmin&&u.role!=='owner')||u.u===S.user.u)?`<button class="btn sm" data-act="userForm" data-u="${h(u.u)}">${ic('pen')}${t('changePass')}</button>`:''}${isAdmin&&u.u!==S.user.u&&u.role!=='owner'?`<button class="btn sm icon" data-act="userDel" data-u="${h(u.u)}">${ic('trash')}</button>`:''}</div></td></tr>`).join(''):`<tr><td dir="ltr" style="text-align:start"><b>admin</b></td><td>${t('admin')}</td><td>${t('admin')}</td><td class="n"><span class="tag warn">admin / admin</span></td></tr>`}
    </tbody></table></div><p class="small muted" style="margin-bottom:0">${t('roleHint')}${isOwner()?'<br>'+t('ownerHidden'):''}</p></div>
   ${isAdmin?`<div class="card"><h3>${t('backup')}</h3><div class="row"><button class="btn" data-act="exportJson">${ic('down')}${t('exportJson')}</button>${isAdmin?`<label class="btn">${ic('up')}${t('importJson')}<input type="file" accept=".json,application/json" id="impFile" class="hidden"></label>`:''}</div>
    <p class="small muted" style="margin-bottom:0"><span class="dot ${S.mode}"></span> ${S.mode==='cloud'?t('storageCloud'):t('localNote')}${s.lastBackup?` · ${t('lastBackup')}: <b>${h(s.lastBackup)}</b>`:''}</p></div>`:''}`;
@@ -1927,6 +1932,22 @@ function paintSearch(q0){const q=q0.trim().toLowerCase();const box=$('#gsRes');i
   const I=S.data.items.filter(i=>itemMatch(i,q)).slice(0,15).map(i=>`<div class="gs" data-act="itemView" data-id="${i.id}">${ic('box')}<b>${h(iName(i))}</b><span class="small muted" dir="ltr">${h(i.code||'')}</span></div>`);
   const all=[...P.slice(0,10),...I,...R.slice(0,40).map(x=>x.html)];box.innerHTML=all.length?all.join(''):`<div class="empty">${t('noResults')}</div>`}
 
+/* ===================== online presence ===================== */
+const Presence={map:{},timer:null,started:false,
+  start(){if(this.started||!S.user)return;this.started=true;const me=S.user.u;
+    if(Store.sb){try{this.ch=Store.sb.channel('ias-presence',{config:{presence:{key:me}}});
+      this.ch.on('presence',{event:'sync'},()=>{const st=this.ch.presenceState();this.map={};Object.keys(st).forEach(k=>this.map[k]={on:true});paintPresence()})
+        .subscribe(async st=>{if(st==='SUBSCRIBED'){try{await this.ch.track({u:me,at:Date.now()})}catch(e){}}})}catch(e){console.warn(e)}}
+    else if(Store.db){try{Store.db.collection('presence').onSnapshot(snap=>{this.map={};snap.docs.forEach(d=>{const x=d.data()||{};this.map[d.id]={ts:+x.ts||0,last:+x.last||0}});paintPresence()},()=>{})}catch(e){}
+      this.beat();this.timer=setInterval(()=>{if(document.visibilityState!=='hidden')this.beat();paintPresence()},30000);
+      if(!this.vis){this.vis=true;document.addEventListener('visibilitychange',()=>{if(this.started)this.beat(document.visibilityState==='hidden')});window.addEventListener('pagehide',()=>{if(this.started)this.beat(true)})}}},
+  beat(off){if(!S.user||!Store.db)return;try{Store.db.collection('presence').doc(S.user.u).set({u:S.user.u,ts:off?0:Date.now(),last:Date.now()})}catch(e){}},
+  stop(){try{if(this.ch){this.ch.untrack().catch(()=>{});Store.sb.removeChannel(this.ch);this.ch=null}}catch(e){}if(Store.db&&S.user)this.beat(true);clearInterval(this.timer);this.started=false;this.map={}},
+  isOn(u){if(S.user&&u===S.user.u)return true;const x=this.map[u];if(!x)return false;return !!x.on||x.ts>Date.now()-75000},
+  last(u){const x=this.map[u];return x&&x.last?x.last:0}
+};
+function paintPresence(){document.querySelectorAll('[data-pres]').forEach(el=>{const u=el.dataset.pres,on=Presence.isOn(u),l=Presence.last(u);el.className='pres '+(on?'on':'off');
+  const tip=on?t('online'):t('offline')+(l?' — '+t('lastSeen')+' '+new Date(l).toLocaleString(isAr()?'ar-BH':'en-GB',{hour:'2-digit',minute:'2-digit',day:'numeric',month:'short'}):'');el.title=tip;el.setAttribute('aria-label',tip);const tx=document.querySelector('[data-pres-t="'+CSS.escape(u)+'"]');if(tx){tx.textContent=tip;tx.className='pres-t '+(on?'on':'off')}})}
 /* ===================== events ===================== */
 const ACT={
   menu(){if(isMobile()){$('#side').classList.add('open')}else{S.sideCollapsed=!S.sideCollapsed;saveSide();$('.shell').classList.toggle('collapsed',S.sideCollapsed)}},
@@ -1934,7 +1955,7 @@ const ACT={
   closeSide(){const sd=$('#side');sd&&sd.classList.remove('open')},
   lang(){S.lang=isAr()?'en':'ar';try{localStorage.setItem('ias-lang',S.lang)}catch(e){}render()},
   setLang(el){S.lang=el.dataset.l;try{localStorage.setItem('ias-lang',S.lang)}catch(e){}render()},
-  logout(){if(Store.sb){Store.sb.auth.signOut().catch(()=>{});COLS.forEach(c=>S.data[c]=[]);S.members=[];S.mustChange=false}S.user=null;saveSession();closeModal();render()},
+  logout(){Presence.stop();if(Store.sb){Store.sb.auth.signOut().catch(()=>{});COLS.forEach(c=>S.data[c]=[]);S.members=[];S.mustChange=false}S.user=null;saveSession();closeModal();render()},
   gSearch(){openSearch()},
   restoreLog(el){restoreLog(el.dataset.id)},
   loadSrc(){loadSrc()},
