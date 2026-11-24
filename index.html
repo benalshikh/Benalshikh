@@ -668,7 +668,7 @@ preparedBy:['المحاسب','Prepared by'],receivedBy:['المستلم','Receiv
 itemsSummary:['ملخص الأصناف','Items summary'],lines:['الأصناف','Lines'],wa_msg_doc:['مرفق','Attached'],permNote:['لا تملك صلاحية التعديل على هذه البيانات','You don\'t have permission to edit this data'],
 role:['الصلاحية','Role'],admin:['مدير','Admin'],staff:['موظف','Staff'],you:['أنت','You'],passChanged:['تم تغيير كلمة المرور','Password changed'],
 userExists:['اسم المستخدم موجود مسبقاً','Username already exists'],fillReq:['يرجى تعبئة الحقول المطلوبة','Please fill in the required fields'],
-cashNote:['البيع النقدي يُسدَّد بالكامل','Cash sales are paid in full'],paidFull:['مدفوعة بالكامل','Paid in full'],noPerm:['هذه الصفحة للمدير فقط','Admin only'],owner:['المدير الأساسي','Owner'],ownerHidden:['حسابك مخفي عن باقي المستخدمين، ولا يمكن لأحد غيرك تعديله أو حذفه.','Your account is hidden from other users; only you can edit it.'],ownerLocked:['لا يمكن تعديل حساب المدير الأساسي','The owner account cannot be changed'],staff:['كاشير / موظف','Cashier / staff'],roleHint:['الكاشير: المبيعات والصرف والمرتجعات وسند القبض والعملاء وإقفال اليوم — بدون حذف أو تعديل مستندات محفوظة أو مشتريات أو إعدادات.','Cashier: sales, issues, returns, receipts, customers and day close — no deleting, no editing saved documents, no purchases or settings.'],
+cashNote:['البيع النقدي يُسدَّد بالكامل','Cash sales are paid in full'],paidFull:['مدفوعة بالكامل','Paid in full'],noPerm:['هذه الصفحة للمدير فقط','Admin only'],newPassTitle:['اختر كلمة مرور جديدة','Choose a new password'],newPassIntro:['هذه كلمة مرور مؤقتة. اختر كلمة مرور خاصة بك قبل المتابعة.','This is a temporary password. Choose your own password to continue.'],badUser:['اسم المستخدم: 3 أحرف إنجليزية أو أرقام على الأقل، بدون مسافات','Username: at least 3 English letters or digits, no spaces'],owner:['المدير الأساسي','Owner'],ownerHidden:['حسابك مخفي عن باقي المستخدمين، ولا يمكن لأحد غيرك تعديله أو حذفه.','Your account is hidden from other users; only you can edit it.'],ownerLocked:['لا يمكن تعديل حساب المدير الأساسي','The owner account cannot be changed'],staff:['كاشير / موظف','Cashier / staff'],roleHint:['الكاشير: المبيعات والصرف والمرتجعات وسند القبض والعملاء وإقفال اليوم — بدون حذف أو تعديل مستندات محفوظة أو مشتريات أو إعدادات.','Cashier: sales, issues, returns, receipts, customers and day close — no deleting, no editing saved documents, no purchases or settings.'],
 faTitle:['أنشئ حساب المدير','Create the admin account'],faIntro:['أنت تستخدم الدخول الافتراضي admin/admin، وهو معروف للجميع. أنشئ اسم مستخدم وكلمة مرور خاصة بك قبل المتابعة.','You are using the default admin/admin login, which anyone can guess. Create your own username and password to continue.'],confirmPass:['تأكيد كلمة المرور','Confirm password'],passMismatch:['كلمتا المرور غير متطابقتين','Passwords do not match'],passShort:['كلمة المرور 6 أحرف على الأقل','Password must be at least 6 characters'],faSave:['إنشاء الحساب والمتابعة','Create account and continue'],
 reports:['التقارير','Reports'],profit:['تقرير الأرباح','Profit report'],dailyClose:['إقفال اليوم','Day close'],expenses:['المصروفات','Expenses'],audit:['سجل التعديلات','Activity log'],
 netSales:['صافي المبيعات','Net sales'],cogs:['تكلفة المبيعات','Cost of sales'],grossProfit:['مجمل الربح','Gross profit'],netProfit:['صافي الربح','Net profit'],margin:['الهامش','Margin'],avgCost:['متوسط التكلفة','Average cost'],byItem:['حسب الصنف','By item'],byInvoice:['حسب الفاتورة','By invoice'],soldQty:['الكمية المباعة','Qty sold'],revenue:['الإيراد','Revenue'],profitNote:['التكلفة = متوسط سعر الشراء المرجّح لكل صنف (قبل الضريبة)، وإن لم توجد مشتريات فسعر الشراء في بطاقة الصنف. المرتجعات تُخصم.','Cost = weighted average purchase price per item (before tax), or the item card cost if there are no purchases. Returns are deducted.'],returnsW:['المرتجعات','Returns'],
@@ -709,7 +709,7 @@ const DOCS={
   purchaseReturn:{col:'purchaseReturns',party:'supplier',prefix:'PR',stock:-1,money:true,priceKey:'cost',inc:false,paidLabel:'refunded'},
 };
 const DEF={company:'ابن الشيخ',companyEn:'Ibn Al-Sheikh',phone:'',address:'',taxNo:'',currency:'BHD',currencyEn:'BHD',decimals:3,taxRate:10,taxOn:true,itemTaxable:true,cc:'973',users:[]};
-function settings(){return Object.assign({},DEF,S.data.settings.find(x=>x.id==='main')||{})}
+function settings(){const o=Object.assign({},DEF,S.data.settings.find(x=>x.id==='main')||{});if(S.backend==='supa')o.users=(S.members||[]).map(m=>({u:m.username,name:m.name||m.username,role:m.role,uid:m.uid}));return o}
 const dec=()=>Math.min(Math.max(parseInt(settings().decimals)||0,0),4);
 const rnd=n=>{const f=Math.pow(10,dec());return Math.round((+n||0)*f)/f};
 const fmt=n=>(Number(n)||0).toLocaleString('en-US',{minimumFractionDigits:dec(),maximumFractionDigits:dec()});
@@ -777,6 +777,59 @@ function partyUsed(kind,id){if(S.data.vouchers.some(v=>v.partyType===kind&&v.par
 function itemUsed(id){return Object.values(DOCS).some(c=>S.data[c.col].some(d=>(d.lines||[]).some(l=>l.itemId===id)))||S.data.counts.some(c=>(c.lines||[]).some(l=>l.itemId===id))}
 
 /* ===================== storage ===================== */
+/* ===================== Supabase backend (used when opened outside Claude, e.g. GitHub Pages) ===================== */
+const SB_CFG={url:'https://ipwerhllyczaovofqkqi.supabase.co',key:'sb_publishable_UpJo8CeiQoTq02gtPkk_hg_rY1Mqta5',domain:'ibn-alsheikh.app'};
+function loadScript(src,ms=15000){return new Promise(res=>{const sc=document.createElement('script');sc.src=src;sc.onload=()=>res(true);sc.onerror=()=>res(false);document.head.appendChild(sc);setTimeout(()=>res(false),ms)})}
+const Supa={
+  async init(){
+    S.mode='connecting';S.localCache=null;
+    if(!window.supabase)await loadScript('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js');
+    if(!window.supabase){S.mode='nocloud';return}
+    Store.sb=window.supabase.createClient(SB_CFG.url,SB_CFG.key,{auth:{persistSession:true,autoRefreshToken:true,storageKey:'ias-sb-auth'}});
+    S.mode='cloud';S.backend='supa';
+    try{const {data}=await Store.sb.auth.getSession();if(data&&data.session){if(!await this.afterLogin(data.session.user)){await Store.sb.auth.signOut();S.user=null}}}catch(e){console.warn(e)}
+    S.ready=true;
+  },
+  async members(){const {data,error}=await Store.sb.from('ias_members').select('uid,username,name,role,must_change');if(error)throw error;S.members=data||[];return S.members},
+  async load(){const all=[];for(let from=0;;from+=1000){const {data,error}=await Store.sb.from('ias_docs').select('col,id,data').range(from,from+999);if(error)throw error;all.push(...data);if(data.length<1000)break}
+    COLS.forEach(c=>S.data[c]=[]);all.forEach(r=>{if(S.data[r.col])S.data[r.col].push(Object.assign({},r.data,{id:r.id}))})},
+  sub(){if(this.ch)return;
+    this.ch=Store.sb.channel('ias-live')
+      .on('postgres_changes',{event:'*',schema:'public',table:'ias_docs'},p=>{
+        if(p.eventType==='DELETE'){const o=p.old||{};if(S.data[o.col])S.data[o.col]=S.data[o.col].filter(x=>x.id!==o.id)}
+        else{const n=p.new||{};const a=S.data[n.col];if(!a)return;const rec=Object.assign({},n.data,{id:n.id});const i=a.findIndex(x=>x.id===rec.id);if(i>=0)a[i]=rec;else a.push(rec)}
+        if(S.ready)scheduleRender()})
+      .on('postgres_changes',{event:'*',schema:'public',table:'ias_members'},()=>{this.members().then(()=>scheduleRender()).catch(()=>{})})
+      .subscribe()},
+  async afterLogin(user){
+    const M=await this.members();const me=M.find(m=>m.uid===user.id);if(!me)return false;
+    S.user={u:me.username,name:me.name||me.username,role:me.role,uid:me.uid};S.mustChange=!!me.must_change;saveSession();
+    await this.load();this.sub();return true},
+  async login(u,p){const email=String(u).trim().toLowerCase()+'@'+SB_CFG.domain;
+    const {data,error}=await Store.sb.auth.signInWithPassword({email,password:p});if(error||!data.user)return false;
+    try{if(await this.afterLogin(data.user))return true}catch(e){console.warn(e)}
+    await Store.sb.auth.signOut();return false},
+  async set(col,rec){const {error}=await Store.sb.from('ias_docs').upsert({col,id:rec.id,data:rec});if(error)throw error},
+  async del(col,id){const {error}=await Store.sb.from('ias_docs').delete().eq('col',col).eq('id',id);if(error)throw error},
+  async saveUser(u,fd){const sb=Store.sb;const name=fd.u.trim().toLowerCase();let r;
+    if(!u){r=await sb.rpc('ias_create_user',{p_username:name,p_name:fd.name.trim(),p_password:fd.p,p_role:fd.role||'staff'})}
+    else if(u.uid===S.user.uid){r=await sb.auth.updateUser({password:fd.p});if(!r.error){await sb.rpc('ias_pw_changed');if(fd.name.trim()&&fd.name.trim()!==u.name)r=await sb.rpc('ias_update_member',{p_uid:u.uid,p_name:fd.name.trim(),p_role:u.role})}}
+    else{r=await sb.rpc('ias_set_password',{p_uid:u.uid,p_password:fd.p});if(!r.error)r=await sb.rpc('ias_update_member',{p_uid:u.uid,p_name:fd.name.trim()||u.name,p_role:fd.role||u.role})}
+    if(r&&r.error)throw r.error;await this.members()},
+  async removeUser(uid){const r=await Store.sb.rpc('ias_remove_member',{p_uid:uid});if(r.error)throw r.error;await this.members()}
+};
+function forcePwForm(){
+  openModal(`<div class="lock"></div><div class="mh"><h3>${t('newPassTitle')}</h3><button class="btn sm" data-act="logout">${ic('out')}${t('logout')}</button></div><form id="pwForm"><div class="mb">
+   <p style="margin-top:0">${t('newPassIntro')}</p><div class="grid g2">
+   ${fld(t('newPass'),`<input name="p" type="password" required minlength="6" autocomplete="new-password">`,1)}${fld(t('confirmPass'),`<input name="p2" type="password" required minlength="6" autocomplete="new-password">`,1)}
+   </div><div class="err" id="pwErr"></div></div><div class="mf"><button class="btn primary">${ic('check')}${t('save')}</button></div></form>`);
+  $('#pwForm').onsubmit=async e=>{e.preventDefault();const fd=Object.fromEntries(new FormData(e.target));
+    if(fd.p.length<6)return $('#pwErr').textContent=t('passShort');if(fd.p!==fd.p2)return $('#pwErr').textContent=t('passMismatch');
+    const b=e.target.querySelector('.btn.primary');b.disabled=true;
+    const r=await Store.sb.auth.updateUser({password:fd.p});if(r.error){b.disabled=false;return $('#pwErr').textContent=r.error.message}
+    await Store.sb.rpc('ias_pw_changed');S.mustChange=false;closeModal();toast(t('passChanged'),'ok');render()};
+  setTimeout(()=>{const n=$('#pwForm [name=p]');n&&n.focus()},40);
+}
 const Store={
   db:null,subscribed:false,
   readLocal(){try{const raw=localStorage.getItem('ias-data-v1');if(raw){const o=JSON.parse(raw);const r={};COLS.forEach(c=>r[c]=Array.isArray(o[c])?o[c]:[]);return r}}catch(e){}return null},
@@ -785,7 +838,7 @@ const Store={
   async init(){
     S.ready=false;S.localCache=this.readLocal();
     const api=window.claude;
-    if(!(api&&typeof api.use==='function')){this.loadLocal();S.mode='local';S.ready=true;return}
+    if(!(api&&typeof api.use==='function')){if(SB_CFG&&(/^https?:$/.test(location.protocol)||window.__forceSupa)){await Supa.init();return}this.loadLocal();S.mode='local';S.ready=true;return}
     S.mode='connecting';
     let db=this.db;
     if(!db){try{db=await Promise.race([api.use('db'),new Promise(r=>setTimeout(()=>r(null),15000))])}catch(e){db=null}}
@@ -811,7 +864,7 @@ const Store={
     if(S.mode==='nocloud'){toast(t('cloudLost'),'err');throw {code:'nocloud'}}
     rec=clone(rec);const arr=S.data[col];const i=arr.findIndex(x=>x.id===rec.id);const prev=i>=0?arr[i]:null;
     if(i>=0)arr[i]=rec;else arr.push(rec);
-    if(this.db){try{await this._try(()=>this.db.collection(col).doc(rec.id).set(rec))}catch(e){
+    if(this.db||this.sb){try{await this._try(()=>this.db?this.db.collection(col).doc(rec.id).set(rec):Supa.set(col,rec))}catch(e){
       if(prev)arr[i]=prev;else arr.splice(arr.indexOf(rec),1);
       toast(t('saveFailed')+(e&&e.code==='invalid_argument'?' — '+t('permNote'):e&&e.code==='unavailable'?' — '+t('checkNet'):e&&e.code?' ('+e.code+')':''),'err');throw e}}
     else this.persistLocal();
@@ -821,7 +874,7 @@ const Store={
   async remove(col,id){
     if(S.mode==='nocloud'){toast(t('cloudLost'),'err');throw {code:'nocloud'}}
     const arr=S.data[col];const i=arr.findIndex(x=>x.id===id);const prev=i>=0?arr[i]:null;if(i>=0)arr.splice(i,1);
-    if(this.db){try{await this._try(()=>this.db.collection(col).doc(id).delete())}catch(e){if(prev)arr.splice(i,0,prev);toast(t('saveFailed'),'err');throw e}}
+    if(this.db||this.sb){try{await this._try(()=>this.db?this.db.collection(col).doc(id).delete():Supa.del(col,id))}catch(e){if(prev)arr.splice(i,0,prev);toast(t('saveFailed'),'err');throw e}}
     else this.persistLocal();
     audit('delete',col,prev);
   }
@@ -868,6 +921,7 @@ const isFormRoute=()=>['doc','itemForm','stockCount','receipt','payment','settin
 /* ===================== auth ===================== */
 async function hashPw(p){try{const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode('ias::'+p));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')}catch(e){let x=0;for(const ch of 'ias::'+p)x=(x*31+ch.charCodeAt(0))|0;return 'w'+x}}
 async function doLogin(u,p){
+  if(S.backend==='supa')return Supa.login(u,p);
   const users=settings().users||[];u=u.trim().toLowerCase();
   if(!users.length){if(u==='admin'&&p==='admin'){S.user={u:'admin',name:isAr()?'المدير':'Administrator',role:'admin',isDefault:true};return true}return false}
   const hp=await hashPw(p);const f=users.find(x=>x.u===u&&x.h===hp);
@@ -937,6 +991,7 @@ function render(){
   P.mount&&P.mount();
   try{const hf=PAGE_HERO[navKey()];const ph=$('#main > .pg-head');if(hf&&ph)ph.insertAdjacentHTML('afterend',`<div class="dhero">${hf()}</div>`)}catch(e){console.error(e)}
   if(S.user.isDefault&&!$('#faForm'))firstAdminForm();
+  else if(S.mustChange&&Store.sb&&!$('#pwForm'))forcePwForm();
 }
 function shellHtml(body){
   const nk=navKey();const g=groupOf(nk);if(S.openGroup===undefined)S.openGroup=g;
@@ -959,7 +1014,7 @@ function shellHtml(body){
   </header><main class="main ${pageTheme()?'docpage dt-'+pageTheme():''}" id="main">${body}</main></div></div>`;
 }
 function loginHtml(){
-  const noUsers=!(settings().users||[]).length;
+  const noUsers=S.backend!=='supa'&&!(settings().users||[]).length;
   return `<div class="login"><div class="login-art">${LOGO(72)}<h1>${t('app')}</h1><p>${t('tagline')}</p>
   <div class="feat"><div>${ic('wallet')}${t('feat1')}</div><div>${ic('cart')}${t('feat2')}</div><div>${ic('wa')}${t('feat3')}</div></div></div>
   <div class="login-side"><form class="login-card" id="loginForm" autocomplete="on">
@@ -1626,7 +1681,7 @@ PAGES.settings={html(){
     try{await Store.save('settings',rec)}catch(err){return}S.logoDraft=undefined;toast(t('saved'),'ok');render()};
   const lf=$('#logoFile');if(lf)lf.onchange=async e=>{const f=e.target.files[0];if(!f)return;try{S.logoDraft=await shrinkImage(f,360);paintLogo()}catch(err){toast(t('logoBad'),'err')}e.target.value=''};
   const imp=$('#impFile');if(imp)imp.onchange=async e=>{const file=e.target.files[0];if(!file)return;try{const o=JSON.parse(await file.text());if(!await confirmDlg(t('importConfirm')))return;
-    S.noLog=true;for(const col of COLS){if(!Array.isArray(o[col]))continue;for(const rec of o[col]){if(rec&&rec.id)await Store.save(col,rec)}}S.noLog=false;toast(t('importDone'),'ok');render()}catch(err){S.noLog=false;toast(t('saveFailed'),'err')}};
+    S.noLog=true;for(const col of COLS){if(!Array.isArray(o[col]))continue;for(const rec of o[col]){if(!rec||!rec.id||col==='logs'&&S.backend==='supa')continue;if(col==='settings'&&S.backend==='supa')delete rec.users;await Store.save(col,rec)}}S.noLog=false;toast(t('importDone'),'ok');render()}catch(err){S.noLog=false;toast(t('saveFailed'),'err')}};
 }};
 function userForm(uname){
   const s=settings();const users=s.users||[];const u=uname?users.find(x=>x.u===uname):null;const isAdmin=window.isAdmin();if(u&&u.role==='owner'&&u.u!==S.user.u)return toast(t('ownerLocked'),'err');
@@ -1636,6 +1691,8 @@ function userForm(uname){
    ${fld(t('role'),`<select name="role" ${isAdmin&&(!u||u.u!==S.user.u)&&!(u&&u.role==='owner')?'':'disabled'}>${u&&u.role==='owner'?opt('owner',t('owner'),'owner'):''}${opt('admin',t('admin'),u?u.role:'staff')}${opt('staff',t('staff'),u?u.role:'staff')}</select>`)}
   </div></div><div class="mf"><button type="button" class="btn" data-act="close">${t('cancel')}</button><button class="btn primary">${t('save')}</button></div></form>`);
   $('#uForm').onsubmit=async e=>{e.preventDefault();const fd=Object.fromEntries(new FormData(e.target));const name=fd.u.trim().toLowerCase();if(!name||!fd.p)return toast(t('fillReq'),'err');
+    if(S.backend==='supa'){if(!u&&!/^[a-z0-9._-]{3,30}$/.test(name))return toast(t('badUser'),'err');if(fd.p.length<6)return toast(t('passShort'),'err');if(!u&&settings().users.some(x=>x.u===name))return toast(t('userExists'),'err');
+      const b=e.target.querySelector('.btn.primary');b.disabled=true;try{await Supa.saveUser(u,fd);if(u&&u.uid===S.user.uid)S.mustChange=false;closeModal();toast(u?t('passChanged'):t('saved'),'ok');render()}catch(err){b.disabled=false;toast(t('saveFailed')+' — '+(err.message||err),'err')}return}
     const cur0=clone(S.data.settings.find(x=>x.id==='main')||Object.assign({id:'main'},DEF));let list=cur0.users||[];
     if(!u&&list.some(x=>x.u===name))return toast(t('userExists'),'err');
     const hsh=await hashPw(fd.p);
@@ -1859,7 +1916,7 @@ const ACT={
   closeSide(){const sd=$('#side');sd&&sd.classList.remove('open')},
   lang(){S.lang=isAr()?'en':'ar';try{localStorage.setItem('ias-lang',S.lang)}catch(e){}render()},
   setLang(el){S.lang=el.dataset.l;try{localStorage.setItem('ias-lang',S.lang)}catch(e){}render()},
-  logout(){S.user=null;saveSession();closeModal();render()},
+  logout(){if(Store.sb){Store.sb.auth.signOut().catch(()=>{});COLS.forEach(c=>S.data[c]=[]);S.members=[];S.mustChange=false}S.user=null;saveSession();closeModal();render()},
   gSearch(){openSearch()},
   restoreLog(el){restoreLog(el.dataset.id)},
   loadSrc(){loadSrc()},
@@ -1914,7 +1971,7 @@ const ACT={
   countSheet(){const st=stockMap();const list=S.data.items.slice().sort((a,b)=>(a.code||'').localeCompare(b.code||'',undefined,{numeric:true}));
     openPreview({title:t('countSheet'),html:repHtml({title:t('countSheet'),meta:[[t('date'),today()],[t('count'),list.length]],tables:[{cols:[{h:'#'},{h:t('code')},{h:t('name')},{h:t('unit')},{h:t('systemQty'),n:1},{h:t('actualQty')},{h:t('notes')}],rows:list.map((i,n)=>[n+1,i.code||'',iName(i),i.unit||'',fq(st[i.id]),'',''])}]}),filename:t('countSheet')+' '+today()})},
   userForm(el){userForm(el.dataset.u)},
-  async userDel(el){const tu=(settings().users||[]).find(x=>x.u===el.dataset.u);if(!isAdmin()||(tu&&tu.role==='owner'))return toast(t('ownerLocked'),'err');if(!await confirmDlg(t('confirmDel'),1))return;const cur0=clone(S.data.settings.find(x=>x.id==='main'));cur0.users=(cur0.users||[]).filter(x=>x.u!==el.dataset.u);try{await Store.save('settings',cur0);toast(t('deleted'),'ok');render()}catch(e){}},
+  async userDel(el){const tu=(settings().users||[]).find(x=>x.u===el.dataset.u);if(!isAdmin()||(tu&&tu.role==='owner'))return toast(t('ownerLocked'),'err');if(!await confirmDlg(t('confirmDel'),1))return;if(S.backend==='supa'){try{await Supa.removeUser(tu.uid);toast(t('deleted'),'ok');render()}catch(e){toast(t('saveFailed'),'err')}return}const cur0=clone(S.data.settings.find(x=>x.id==='main'));cur0.users=(cur0.users||[]).filter(x=>x.u!==el.dataset.u);try{await Store.save('settings',cur0);toast(t('deleted'),'ok');render()}catch(e){}},
   async exportJson(){const o={app:'ibn-alsheikh',version:1,exportedAt:new Date().toISOString()};COLS.forEach(c=>o[c]=S.data[c]);
     try{await saveFile('ibn-alsheikh-backup-'+today()+'.json',JSON.stringify(o,null,1));toast(t('pdfSaved').replace('PDF','JSON'),'ok');markBackup()}catch(e){toast(e&&e.code==='declined'?t('pdfDeclined'):t('saveFailed'),'err')}},
 };
@@ -1972,7 +2029,7 @@ document.addEventListener('keydown',e=>{
 
 /* ===================== boot ===================== */
 render();
-Store.init().then(()=>{loadSession();if(S.user&&S.user.isDefault&&(settings().users||[]).length)S.user=null;render()});
+Store.init().then(()=>{if(S.backend!=='supa')loadSession();if(S.user&&S.user.isDefault&&(settings().users||[]).length)S.user=null;render()});
 </script>
 </body>
 </html>

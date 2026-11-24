@@ -1,9 +1,9 @@
 # ابن الشيخ — النظام المحاسبي | Ibn Al-Sheikh Accounting
 
-## 👈 [افتح التطبيق — Open the app](https://claude.ai/artifact/6mQv3UZLeUziPmAxei3X46)
+## 👈 [افتح التطبيق — Open the app](https://benalshikh.github.io/Benalshikh/)
 
-> الرابط أعلاه يفتح التطبيق مع الحفظ السحابي المشترك.
-> The link above opens the live app with shared cloud storage.
+> يعمل من أي جهاز ومتصفح، والبيانات محفوظة في قاعدة بيانات Supabase مشتركة بين كل المستخدمين.
+> Works from any device; data is stored in a shared Supabase database.
 
 ---
 
@@ -18,7 +18,8 @@
 - **الصلاحيات:** مدير أساسي مخفي، مدير، كاشير
 
 ## التشغيل
-- **الاستخدام اليومي:** من الرابط أعلاه.
-- **تشغيل `index.html` مباشرة** (من جهازك أو أي استضافة) يعمل، لكن البيانات تُحفظ في متصفح ذلك الجهاز فقط (localStorage).
+- **الاستخدام اليومي:** https://benalshikh.github.io/Benalshikh/ — الدخول بحسابات Supabase Auth، وإدارة المستخدمين من الإعدادات.
+- **قاعدة البيانات:** مشروع Supabase باسم `ibn-alsheikh` (جدولا `ias_docs` و`ias_members` مع صلاحيات RLS).
+- **فتح `index.html` من الجهاز مباشرة (file://)** يعمل بحفظ محلي في المتصفح فقط.
 
 > لا يحتوي المستودع على أي بيانات مالية.
