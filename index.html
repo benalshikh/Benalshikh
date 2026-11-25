@@ -580,6 +580,11 @@ table.t tfoot td{background:linear-gradient(180deg,#fbf5e6,#f7ecd0);color:#4a381
 /* ===== A4 portrait invoice ===== */
 .rep{min-height:1080px;display:flex;flex-direction:column}
 .rep>*{flex:none}
+.rep-tot{width:auto!important;margin:18px 0 0!important;display:grid!important;gap:8px!important}
+.rep-tot div{flex-direction:column;align-items:flex-start;justify-content:center;gap:4px;padding:10px 14px!important;border:1px solid #dfe7e5;border-radius:10px;background:#f6f9f8}
+.rep-tot div span{font-size:11px;color:#5d6c69;font-weight:600}.rep-tot div b{font-size:15px;color:#13221f;direction:ltr}
+.rep-tot .grand{grid-column:1/-1;flex-direction:row!important;justify-content:space-between!important;align-items:center!important;padding:14px 20px!important;border:0;border-radius:12px}
+.rep-tot .grand span{font-size:15px;color:#fff;font-weight:800}.rep-tot .grand b{font-size:23px;color:#fff;letter-spacing:.3px}
 .rep-foot{margin-top:auto!important;padding-top:10px}
 .rep-sign{margin-bottom:24px}
 .pv-fit{position:relative;margin:0 auto;overflow:hidden;box-shadow:0 4px 18px rgba(7,38,35,.18);background:#fff}
@@ -1106,7 +1111,7 @@ function repHtml({title,meta=[],tables=[],totals=[],note='',sign=true}){
   return `<div class="rep" dir="${isAr()?'rtl':'ltr'}"><div class="rep-head"><div class="rep-brand">${logoHtml}<div><div class="rep-co">${h(coName())}</div>${sub}</div></div><div class="rep-title">${h(title)}</div></div>
   ${meta.length?`<div class="rep-meta">${meta.map(([k,v])=>`<div><span>${h(k)}</span><b>${h(v)||'—'}</b></div>`).join('')}</div>`:''}
   ${tables.map(tbl).join('')}
-  ${totals.length?`<div class="rep-tot">${totals.map(([k,v,g])=>`<div class="${g?'grand':''}"><span>${h(k)}</span><b>${h(v)}</b></div>`).join('')}</div>`:''}
+  ${totals.length?`<div class="rep-tot" style="grid-template-columns:repeat(${Math.max(1,Math.min(6,totals.filter(x=>!x[2]).length))},1fr)">${[...totals.filter(x=>!x[2]),...totals.filter(x=>x[2])].map(([k,v,g])=>`<div class="${g?'grand':''}"><span>${h(k)}</span><b>${h(v)}</b></div>`).join('')}</div>`:''}
   ${note?`<div class="rep-note">${h(t('notes'))}: ${h(note)}</div>`:''}
   ${sign?`<div class="rep-sign"><div>${t('preparedBy')}: ____________</div><div>${t('receivedBy')}: ____________</div></div>`:''}
   <div class="rep-foot"><span>${h(coName())} — ${t('tagline')}</span><span>${t('printedAt')}: ${now} · ${h(S.user?S.user.name:'')}</span></div></div>`;
