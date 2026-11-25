@@ -312,6 +312,15 @@ select.need{border-color:var(--ruby)!important;box-shadow:0 0 0 3px rgba(168,50,
 .qi-btn{flex:none;white-space:nowrap}
 .draft-note{display:flex;gap:6px;align-items:flex-start;margin:10px 2px 4px;line-height:1.5}.draft-note svg{width:15px;height:15px;flex:none;margin-top:2px}
 @media (max-width:860px){.lines-t .ln-total input{width:100%;margin-top:2px}}
+.ss{position:relative;flex:1;min-width:0}.ss-native{display:none!important}
+.ss-in{width:100%;padding-inline-end:38px!important;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2377868a' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='M21 21l-4.3-4.3'/%3E%3C/svg%3E");background-repeat:no-repeat;background-size:18px;background-position:left 12px center}
+[dir=ltr] .ss-in{background-position:right 12px center}
+.ss-list{position:absolute;z-index:200;top:calc(100% + 6px);inset-inline:0;max-height:min(320px,55vh);overflow:auto;background:#fff;border:1px solid #dfe6e4;border-radius:14px;box-shadow:0 14px 34px rgba(0,0,0,.18);padding:4px}
+.ss-opt{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px 12px;border-radius:10px;cursor:pointer;color:#1d2b29}
+.ss-opt b{font-weight:600}.ss-opt.sel b{font-weight:800}.ss-opt span{color:#7a8885;font-size:12.5px}
+.ss-opt.on,.ss-opt:hover{background:#eef4f2}.ss-empty{padding:14px;color:#7a8885;text-align:center}
+.card:has(.ss-list:not(.hidden)),.fsec:has(.ss-list:not(.hidden)),.dhero:has(.ss-list:not(.hidden)){overflow:visible!important;position:relative;z-index:6}
+.top{z-index:20}
 .sync-chip{display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border-radius:20px;font-size:12.5px;font-weight:700;border:1px solid rgba(255,255,255,.18)}
 .sync-chip svg{width:17px;height:17px}
 .sync-chip.cloud{color:#7ff0b4;background:rgba(61,220,132,.12)}
@@ -686,7 +695,7 @@ preparedBy:['المحاسب','Prepared by'],receivedBy:['المستلم','Receiv
 itemsSummary:['ملخص الأصناف','Items summary'],lines:['الأصناف','Lines'],wa_msg_doc:['مرفق','Attached'],permNote:['لا تملك صلاحية التعديل على هذه البيانات','You don\'t have permission to edit this data'],
 role:['الصلاحية','Role'],admin:['مدير','Admin'],staff:['موظف','Staff'],you:['أنت','You'],passChanged:['تم تغيير كلمة المرور','Password changed'],
 userExists:['اسم المستخدم موجود مسبقاً','Username already exists'],fillReq:['يرجى تعبئة الحقول المطلوبة','Please fill in the required fields'],
-cashNote:['البيع النقدي يُسدَّد بالكامل','Cash sales are paid in full'],paidFull:['مدفوعة بالكامل','Paid in full'],noPerm:['هذه الصفحة للمدير فقط','Admin only'],lineTotal:['الإجمالي','Total'],clearDoc:['مسح الفاتورة','Clear invoice'],clearDocQ:['مسح كل أصناف هذه الفاتورة غير المحفوظة؟','Clear all items of this unsaved invoice?'],draftKept:['الأصناف المضافة تبقى محفوظة تلقائياً حتى تحفظ الفاتورة أو تمسحها، حتى لو خرجت من الصفحة أو أغلقت التطبيق.','Added items are kept automatically until you save or clear the invoice — even if you leave the page or close the app.'],quickItem:['صنف جديد سريع','Quick new item'],quickItemShort:['صنف جديد','New item'],quickItemSave:['حفظ وإضافة للفاتورة','Save & add to invoice'],costPrice:['سعر الشراء','Purchase price'],itemTaxable:['خاضع للضريبة','Taxable'],autoTranslated:['تُرجم تلقائياً — يمكنك تعديله','Auto-translated — you can edit it'],itemDupe:['يوجد صنف بنفس الاسم والوحدة. إضافة صنف جديد على أي حال؟','An item with the same name and unit exists. Add a new one anyway?'],online:['متصل الآن','Online'],offline:['غير متصل','Offline'],lastSeen:['آخر ظهور','last seen'],rememberMe:['تذكّرني على هذا الجهاز','Remember me on this device'],newPassTitle:['اختر كلمة مرور جديدة','Choose a new password'],newPassIntro:['هذه كلمة مرور مؤقتة. اختر كلمة مرور خاصة بك قبل المتابعة.','This is a temporary password. Choose your own password to continue.'],badUser:['اسم المستخدم: 3 أحرف إنجليزية أو أرقام على الأقل، بدون مسافات','Username: at least 3 English letters or digits, no spaces'],owner:['المدير الأساسي','Owner'],ownerHidden:['حسابك مخفي عن باقي المستخدمين، ولا يمكن لأحد غيرك تعديله أو حذفه.','Your account is hidden from other users; only you can edit it.'],ownerLocked:['لا يمكن تعديل حساب المدير الأساسي','The owner account cannot be changed'],staff:['كاشير / موظف','Cashier / staff'],roleHint:['الكاشير: المبيعات والصرف والمرتجعات وسند القبض والعملاء وإقفال اليوم — بدون حذف أو تعديل مستندات محفوظة أو مشتريات أو إعدادات.','Cashier: sales, issues, returns, receipts, customers and day close — no deleting, no editing saved documents, no purchases or settings.'],
+cashNote:['البيع النقدي يُسدَّد بالكامل','Cash sales are paid in full'],paidFull:['مدفوعة بالكامل','Paid in full'],searchParty:['ابحث بالاسم أو رقم الهاتف…','Search by name or phone…'],noPerm:['هذه الصفحة للمدير فقط','Admin only'],lineTotal:['الإجمالي','Total'],clearDoc:['مسح الفاتورة','Clear invoice'],clearDocQ:['مسح كل أصناف هذه الفاتورة غير المحفوظة؟','Clear all items of this unsaved invoice?'],draftKept:['الأصناف المضافة تبقى محفوظة تلقائياً حتى تحفظ الفاتورة أو تمسحها، حتى لو خرجت من الصفحة أو أغلقت التطبيق.','Added items are kept automatically until you save or clear the invoice — even if you leave the page or close the app.'],quickItem:['صنف جديد سريع','Quick new item'],quickItemShort:['صنف جديد','New item'],quickItemSave:['حفظ وإضافة للفاتورة','Save & add to invoice'],costPrice:['سعر الشراء','Purchase price'],itemTaxable:['خاضع للضريبة','Taxable'],autoTranslated:['تُرجم تلقائياً — يمكنك تعديله','Auto-translated — you can edit it'],itemDupe:['يوجد صنف بنفس الاسم والوحدة. إضافة صنف جديد على أي حال؟','An item with the same name and unit exists. Add a new one anyway?'],online:['متصل الآن','Online'],offline:['غير متصل','Offline'],lastSeen:['آخر ظهور','last seen'],rememberMe:['تذكّرني على هذا الجهاز','Remember me on this device'],newPassTitle:['اختر كلمة مرور جديدة','Choose a new password'],newPassIntro:['هذه كلمة مرور مؤقتة. اختر كلمة مرور خاصة بك قبل المتابعة.','This is a temporary password. Choose your own password to continue.'],badUser:['اسم المستخدم: 3 أحرف إنجليزية أو أرقام على الأقل، بدون مسافات','Username: at least 3 English letters or digits, no spaces'],owner:['المدير الأساسي','Owner'],ownerHidden:['حسابك مخفي عن باقي المستخدمين، ولا يمكن لأحد غيرك تعديله أو حذفه.','Your account is hidden from other users; only you can edit it.'],ownerLocked:['لا يمكن تعديل حساب المدير الأساسي','The owner account cannot be changed'],staff:['كاشير / موظف','Cashier / staff'],roleHint:['الكاشير: المبيعات والصرف والمرتجعات وسند القبض والعملاء وإقفال اليوم — بدون حذف أو تعديل مستندات محفوظة أو مشتريات أو إعدادات.','Cashier: sales, issues, returns, receipts, customers and day close — no deleting, no editing saved documents, no purchases or settings.'],
 faTitle:['أنشئ حساب المدير','Create the admin account'],faIntro:['أنت تستخدم الدخول الافتراضي admin/admin، وهو معروف للجميع. أنشئ اسم مستخدم وكلمة مرور خاصة بك قبل المتابعة.','You are using the default admin/admin login, which anyone can guess. Create your own username and password to continue.'],confirmPass:['تأكيد كلمة المرور','Confirm password'],passMismatch:['كلمتا المرور غير متطابقتين','Passwords do not match'],passShort:['كلمة المرور 6 أحرف على الأقل','Password must be at least 6 characters'],faSave:['إنشاء الحساب والمتابعة','Create account and continue'],
 reports:['التقارير','Reports'],profit:['تقرير الأرباح','Profit report'],dailyClose:['إقفال اليوم','Day close'],expenses:['المصروفات','Expenses'],audit:['سجل التعديلات','Activity log'],
 netSales:['صافي المبيعات','Net sales'],cogs:['تكلفة المبيعات','Cost of sales'],grossProfit:['مجمل الربح','Gross profit'],netProfit:['صافي الربح','Net profit'],margin:['الهامش','Margin'],avgCost:['متوسط التكلفة','Average cost'],byItem:['حسب الصنف','By item'],byInvoice:['حسب الفاتورة','By invoice'],soldQty:['الكمية المباعة','Qty sold'],revenue:['الإيراد','Revenue'],profitNote:['التكلفة = متوسط سعر الشراء المرجّح لكل صنف (قبل الضريبة)، وإن لم توجد مشتريات فسعر الشراء في بطاقة الصنف. المرتجعات تُخصم.','Cost = weighted average purchase price per item (before tax), or the item card cost if there are no purchases. Returns are deducted.'],returnsW:['المرتجعات','Returns'],
@@ -1010,6 +1019,7 @@ function render(){
   let body='';try{body=P.html()}catch(e){console.error(e);body=`<div class="card">${h(e.message)}</div>`}
   app.innerHTML=shellHtml(body);
   P.mount&&P.mount();
+  try{enhanceSelects()}catch(e){console.error(e)}
   try{const hf=PAGE_HERO[navKey()];const ph=$('#main > .pg-head');if(hf&&ph)ph.insertAdjacentHTML('afterend',`<div class="dhero">${hf()}</div>`)}catch(e){console.error(e)}
   Presence.start();paintPresence();
   if(S.user.isDefault&&!$('#faForm'))firstAdminForm();
@@ -1991,6 +2001,29 @@ const Presence={map:{},timer:null,started:false,
 };
 function paintPresence(){document.querySelectorAll('[data-pres]').forEach(el=>{const u=el.dataset.pres,on=Presence.isOn(u),l=Presence.last(u);el.className='pres '+(on?'on':'off');
   const tip=on?t('online'):t('offline')+(l?' — '+t('lastSeen')+' '+new Date(l).toLocaleString(isAr()?'ar-BH':'en-GB',{hour:'2-digit',minute:'2-digit',day:'numeric',month:'short'}):'');el.title=tip;el.setAttribute('aria-label',tip);const tx=document.querySelector('[data-pres-t="'+CSS.escape(u)+'"]');if(tx){tx.textContent=tip;tx.className='pres-t '+(on?'on':'off')}})}
+/* ===================== searchable customer / supplier picker ===================== */
+function enhanceSelects(){
+  document.querySelectorAll('select[data-f="partyId"],select[data-v="partyId"],select[data-filter="stmt:party"]').forEach(sel=>{
+    if(sel.dataset.ss)return;sel.dataset.ss='1';
+    const wrap=document.createElement('div');wrap.className='ss';sel.parentNode.insertBefore(wrap,sel);wrap.appendChild(sel);sel.classList.add('ss-native');
+    const inp=document.createElement('input');inp.type='text';inp.className='ss-in';inp.autocomplete='off';inp.setAttribute('enterkeyhint','search');
+    const box=document.createElement('div');box.className='ss-list hidden';wrap.appendChild(inp);wrap.appendChild(box);
+    const phoneOf=v=>{const p=v&&(byId('customers',v)||byId('suppliers',v));return p&&p.phone?String(p.phone):''};
+    const norm=x=>String(x||'').toLowerCase().replace(/[أإآ]/g,'ا').replace(/ة/g,'ه').replace(/ى/g,'ي').replace(/\s+/g,' ');
+    const show=()=>{const o=sel.options[sel.selectedIndex];inp.value=o&&o.value?o.text:'';inp.placeholder=(o&&!o.value?o.text+' — ':'')+t('searchParty')};show();
+    let idx=0,items=[];
+    const paint=()=>{const q=norm(inp.value.trim());items=[...sel.options].filter(o=>!q||norm(o.text).includes(q)||phoneOf(o.value).includes(q));
+      box.innerHTML=items.length?items.slice(0,80).map((o,i)=>{const ph=phoneOf(o.value);return `<div class="ss-opt ${i===idx?'on':''} ${o.value===sel.value?'sel':''}" data-i="${i}"><b>${h(o.text)}</b>${ph?`<span dir="ltr">${h(ph)}</span>`:''}</div>`}).join(''):`<div class="ss-empty">${t('noResults')}</div>`;
+      box.classList.remove('hidden');const on=box.querySelector('.on');on&&on.scrollIntoView({block:'nearest'})};
+    const pick=o=>{if(!o)return;box.classList.add('hidden');const ch=sel.value!==o.value;sel.value=o.value;show();inp.blur();if(ch)sel.dispatchEvent(new Event('change',{bubbles:true}))};
+    inp.addEventListener('focus',()=>{const r=inp.getBoundingClientRect();if(r.top>window.innerHeight*0.38)window.scrollBy({top:r.top-110,behavior:'smooth'});inp.value='';idx=Math.max(0,[...sel.options].findIndex(o=>o.value===sel.value));paint()});
+    inp.addEventListener('input',e=>{e.stopPropagation();idx=0;paint()});
+    inp.addEventListener('keydown',e=>{if(e.key==='ArrowDown'){idx=Math.min(idx+1,items.length-1);paint();e.preventDefault()}else if(e.key==='ArrowUp'){idx=Math.max(idx-1,0);paint();e.preventDefault()}
+      else if(e.key==='Enter'){e.preventDefault();e.stopPropagation();pick(items[idx])}else if(e.key==='Escape'){e.stopPropagation();box.classList.add('hidden');inp.blur()}});
+    box.addEventListener('pointerdown',e=>{e.preventDefault();const d=e.target.closest('.ss-opt');if(d)pick(items[+d.dataset.i])});
+    inp.addEventListener('blur',()=>setTimeout(()=>{if(document.activeElement!==inp){box.classList.add('hidden');show()}},120));
+  });
+}
 /* ===================== events ===================== */
 const ACT={
   menu(){if(isMobile()){$('#side').classList.add('open')}else{S.sideCollapsed=!S.sideCollapsed;saveSide();$('.shell').classList.toggle('collapsed',S.sideCollapsed)}},
