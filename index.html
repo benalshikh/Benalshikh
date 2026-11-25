@@ -308,6 +308,10 @@ select.need{border-color:var(--ruby)!important;box-shadow:0 0 0 3px rgba(168,50,
 .pres.on{background:#22c55e;box-shadow:0 0 0 3px rgba(34,197,94,.22)}
 .pres.off{background:#e5484d;box-shadow:0 0 0 3px rgba(229,72,77,.18)}
 .pres-t{display:block;font-size:11.5px;font-weight:600;margin-top:3px;margin-inline-start:19px}.pres-t.on{color:#15803d}.pres-t.off{color:#b42318}
+.lt-in{font-weight:700}
+.qi-btn{flex:none;white-space:nowrap}
+.draft-note{display:flex;gap:6px;align-items:flex-start;margin:10px 2px 4px;line-height:1.5}.draft-note svg{width:15px;height:15px;flex:none;margin-top:2px}
+@media (max-width:860px){.lines-t .ln-total input{width:100%;margin-top:2px}}
 .sync-chip{display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border-radius:20px;font-size:12.5px;font-weight:700;border:1px solid rgba(255,255,255,.18)}
 .sync-chip svg{width:17px;height:17px}
 .sync-chip.cloud{color:#7ff0b4;background:rgba(61,220,132,.12)}
@@ -682,7 +686,7 @@ preparedBy:['المحاسب','Prepared by'],receivedBy:['المستلم','Receiv
 itemsSummary:['ملخص الأصناف','Items summary'],lines:['الأصناف','Lines'],wa_msg_doc:['مرفق','Attached'],permNote:['لا تملك صلاحية التعديل على هذه البيانات','You don\'t have permission to edit this data'],
 role:['الصلاحية','Role'],admin:['مدير','Admin'],staff:['موظف','Staff'],you:['أنت','You'],passChanged:['تم تغيير كلمة المرور','Password changed'],
 userExists:['اسم المستخدم موجود مسبقاً','Username already exists'],fillReq:['يرجى تعبئة الحقول المطلوبة','Please fill in the required fields'],
-cashNote:['البيع النقدي يُسدَّد بالكامل','Cash sales are paid in full'],paidFull:['مدفوعة بالكامل','Paid in full'],noPerm:['هذه الصفحة للمدير فقط','Admin only'],online:['متصل الآن','Online'],offline:['غير متصل','Offline'],lastSeen:['آخر ظهور','last seen'],rememberMe:['تذكّرني على هذا الجهاز','Remember me on this device'],newPassTitle:['اختر كلمة مرور جديدة','Choose a new password'],newPassIntro:['هذه كلمة مرور مؤقتة. اختر كلمة مرور خاصة بك قبل المتابعة.','This is a temporary password. Choose your own password to continue.'],badUser:['اسم المستخدم: 3 أحرف إنجليزية أو أرقام على الأقل، بدون مسافات','Username: at least 3 English letters or digits, no spaces'],owner:['المدير الأساسي','Owner'],ownerHidden:['حسابك مخفي عن باقي المستخدمين، ولا يمكن لأحد غيرك تعديله أو حذفه.','Your account is hidden from other users; only you can edit it.'],ownerLocked:['لا يمكن تعديل حساب المدير الأساسي','The owner account cannot be changed'],staff:['كاشير / موظف','Cashier / staff'],roleHint:['الكاشير: المبيعات والصرف والمرتجعات وسند القبض والعملاء وإقفال اليوم — بدون حذف أو تعديل مستندات محفوظة أو مشتريات أو إعدادات.','Cashier: sales, issues, returns, receipts, customers and day close — no deleting, no editing saved documents, no purchases or settings.'],
+cashNote:['البيع النقدي يُسدَّد بالكامل','Cash sales are paid in full'],paidFull:['مدفوعة بالكامل','Paid in full'],noPerm:['هذه الصفحة للمدير فقط','Admin only'],lineTotal:['الإجمالي','Total'],clearDoc:['مسح الفاتورة','Clear invoice'],clearDocQ:['مسح كل أصناف هذه الفاتورة غير المحفوظة؟','Clear all items of this unsaved invoice?'],draftKept:['الأصناف المضافة تبقى محفوظة تلقائياً حتى تحفظ الفاتورة أو تمسحها، حتى لو خرجت من الصفحة أو أغلقت التطبيق.','Added items are kept automatically until you save or clear the invoice — even if you leave the page or close the app.'],quickItem:['صنف جديد سريع','Quick new item'],quickItemShort:['صنف جديد','New item'],quickItemSave:['حفظ وإضافة للفاتورة','Save & add to invoice'],costPrice:['سعر الشراء','Purchase price'],itemTaxable:['خاضع للضريبة','Taxable'],autoTranslated:['تُرجم تلقائياً — يمكنك تعديله','Auto-translated — you can edit it'],itemDupe:['يوجد صنف بنفس الاسم والوحدة. إضافة صنف جديد على أي حال؟','An item with the same name and unit exists. Add a new one anyway?'],online:['متصل الآن','Online'],offline:['غير متصل','Offline'],lastSeen:['آخر ظهور','last seen'],rememberMe:['تذكّرني على هذا الجهاز','Remember me on this device'],newPassTitle:['اختر كلمة مرور جديدة','Choose a new password'],newPassIntro:['هذه كلمة مرور مؤقتة. اختر كلمة مرور خاصة بك قبل المتابعة.','This is a temporary password. Choose your own password to continue.'],badUser:['اسم المستخدم: 3 أحرف إنجليزية أو أرقام على الأقل، بدون مسافات','Username: at least 3 English letters or digits, no spaces'],owner:['المدير الأساسي','Owner'],ownerHidden:['حسابك مخفي عن باقي المستخدمين، ولا يمكن لأحد غيرك تعديله أو حذفه.','Your account is hidden from other users; only you can edit it.'],ownerLocked:['لا يمكن تعديل حساب المدير الأساسي','The owner account cannot be changed'],staff:['كاشير / موظف','Cashier / staff'],roleHint:['الكاشير: المبيعات والصرف والمرتجعات وسند القبض والعملاء وإقفال اليوم — بدون حذف أو تعديل مستندات محفوظة أو مشتريات أو إعدادات.','Cashier: sales, issues, returns, receipts, customers and day close — no deleting, no editing saved documents, no purchases or settings.'],
 faTitle:['أنشئ حساب المدير','Create the admin account'],faIntro:['أنت تستخدم الدخول الافتراضي admin/admin، وهو معروف للجميع. أنشئ اسم مستخدم وكلمة مرور خاصة بك قبل المتابعة.','You are using the default admin/admin login, which anyone can guess. Create your own username and password to continue.'],confirmPass:['تأكيد كلمة المرور','Confirm password'],passMismatch:['كلمتا المرور غير متطابقتين','Passwords do not match'],passShort:['كلمة المرور 6 أحرف على الأقل','Password must be at least 6 characters'],faSave:['إنشاء الحساب والمتابعة','Create account and continue'],
 reports:['التقارير','Reports'],profit:['تقرير الأرباح','Profit report'],dailyClose:['إقفال اليوم','Day close'],expenses:['المصروفات','Expenses'],audit:['سجل التعديلات','Activity log'],
 netSales:['صافي المبيعات','Net sales'],cogs:['تكلفة المبيعات','Cost of sales'],grossProfit:['مجمل الربح','Gross profit'],netProfit:['صافي الربح','Net profit'],margin:['الهامش','Margin'],avgCost:['متوسط التكلفة','Average cost'],byItem:['حسب الصنف','By item'],byInvoice:['حسب الفاتورة','By invoice'],soldQty:['الكمية المباعة','Qty sold'],revenue:['الإيراد','Revenue'],profitNote:['التكلفة = متوسط سعر الشراء المرجّح لكل صنف (قبل الضريبة)، وإن لم توجد مشتريات فسعر الشراء في بطاقة الصنف. المرتجعات تُخصم.','Cost = weighted average purchase price per item (before tax), or the item card cost if there are no purchases. Returns are deducted.'],returnsW:['المرتجعات','Returns'],
@@ -1233,7 +1237,8 @@ PAGES.dashboard={html(){
 /* ---- document form (sales / purchases / returns / issues) ---- */
 function newDraft(type){const cfg=DOCS[type];return {type,no:nextNo(cfg.col),date:today(),partyId:'',partyName:'',lines:[],discount:0,taxRate:cfg.money?(+settings().taxRate||0):0,taxOn:cfg.money?settings().taxOn!==false:false,paid:0,notes:'',ref:'',payMethod:''}}
 PAGES.doc={html(){
-  const type=S.param;const cfg=DOCS[type];if(!S.draft||S.draft.type!==type)S.draft=newDraft(type);const d=S.draft;const T=docTotals(d);const st=stockMap();
+  const type=S.param;const cfg=DOCS[type];if(!S.drafts)S.drafts=loadDrafts();if(!S.draft||S.draft.type!==type)S.draft=S.drafts[type]||newDraft(type);const d=S.draft;
+  if(!d.id){S.drafts[type]=d;if(S.data[cfg.col].some(x=>+x.no===+d.no))d.no=nextNo(cfg.col)}const T=docTotals(d);const st=stockMap();
   const orig=d.id?(S.data[cfg.col].find(x=>x.id===d.id)||{lines:[]}):{lines:[]};
   const bq=l=>(+l.qty||0)*(+l.factor||1);const availOf=id=>{let a=st[id]||0;orig.lines.forEach(l=>{if(l.itemId===id)a+=cfg.stock<0?bq(l):-bq(l)});return a};
   const items=S.data.items.slice().sort((a,b)=>iName(a).localeCompare(iName(b)));
@@ -1243,12 +1248,12 @@ PAGES.doc={html(){
     ${it?`<div class="small muted">${t('avail')}: <b class="${av-(cfg.stock<0?bq(l):0)<0?'neg':''}">${fq(av)}</b> ${h(it.unit||'')}</div>`:''}</td>
     <td style="width:150px" data-lbl="${t('unit')}">${it?`<select data-l="${i}:unit">${itemUnits(it).map(u=>opt(u.name,u.name+(u.factor!==1?' ×'+fq(u.factor):''),l.unit||it.unit)).join('')}</select>`:''}</td>
     <td style="width:110px" data-lbl="${t('qty')}"><input type="number" step="any" min="0" data-l="${i}:qty" value="${h(l.qty)}" inputmode="decimal" enterkeyhint="next"></td>
-    ${cfg.money?`<td style="width:130px" data-lbl="${t('price')}"><input type="number" step="any" min="0" class="money" data-l="${i}:price" value="${fx(l.price)}" inputmode="decimal" enterkeyhint="next">${it&&taxLbl(d,l)?`<div class="small muted" style="white-space:nowrap">${taxLbl(d,l)}</div>`:''}</td><td class="n ln-total" data-lbl="${t('total')}" data-lt="${i}">${fmt((+l.qty||0)*(+l.price||0))}</td>`:''}
+    ${cfg.money?`<td style="width:130px" data-lbl="${t('price')}"><input type="number" step="any" min="0" class="money" data-l="${i}:price" value="${fx(l.price)}" inputmode="decimal" enterkeyhint="next">${it&&taxLbl(d,l)?`<div class="small muted" style="white-space:nowrap">${taxLbl(d,l)}</div>`:''}</td><td class="n ln-total" style="width:140px" data-lbl="${t('lineTotal')}"><input type="number" step="any" min="0" class="money lt-in" data-l="${i}:total" data-lt="${i}" value="${fx((+l.qty||0)*(+l.price||0))}" inputmode="decimal" enterkeyhint="next"></td>`:''}
     <td class="ln-del" style="width:44px"><button class="btn icon ghost" data-act="rmLine" data-i="${i}" title="${t('del')}">${ic('trash')}</button></td></tr>`}).join('');
   const cash=paidLocked(d);
   const sec=(icn,title,body,extra='')=>`<section class="card fsec acc"><div class="fsec-h"><span class="fsec-ic">${ic(icn)}</span><h3>${title}</h3>${extra}</div>${body}</section>`;
   return `<div class="docpage dt-${type}"><div class="pg-head"><div><h2>${t('doc_'+type)} ${d.id?`<span class="tag gold">${t('edit')}</span>`:''}</h2><p>${t('docSub_'+type)}</p></div>
-   <div class="row"><button class="btn" data-go="list-${type}">${ic('file')}${t('list-'+type)}</button></div></div>
+   <div class="row">${!d.id&&d.lines.length?`<button class="btn" data-act="discardDraft">${ic('trash')}${t('clearDoc')}</button>`:''}<button class="btn" data-go="list-${type}">${ic('file')}${t('list-'+type)}</button></div></div>
   <div class="dhero" id="dhero">${docHeroHtml(d)}</div>
   ${sec('file',t('docData'),`<div class="grid g4">
     ${fld(t('no'),`<div class="code-box"><input readonly dir="ltr" value="${docNo(type,d)}"></div>`)}
@@ -1260,8 +1265,9 @@ PAGES.doc={html(){
   ${type==='salesReturn'||type==='purchaseReturn'?srcPickerHtml(d):''}
   ${type==='sale'?`<div class="paym ${S.payErr&&!d.payMethod?'err':''}" id="payBox"><div class="paym-lbl">${t('payMethod')} <span class="neg">*</span></div><div class="paym-opts">${PM.map(m=>`<button type="button" class="pm pm-${m} ${d.payMethod===m?'on':''}" data-act="setPay" data-m="${m}">${ic(PM_IC[m])}<span>${t('pm_'+m)}</span></button>`).join('')}</div>
    ${d.payMethod==='credit'&&!d.partyId?`<div class="alert" style="margin:10px 0 0">${ic('alert')}${t('creditNeedsCustomer')}</div>`:''}</div>`:''}`)}
-  ${sec('cart',t('lines'),`<div class="isearch"><div class="isearch-box">${ic('search')}<input id="itemSearch" autocomplete="off" placeholder="${t('searchItem')}" enterkeyhint="search"></div><div class="isearch-res hidden" id="itemRes"></div></div>
-  ${d.lines.length?`<div class="tbl-wrap"><table class="t lines-t"><thead><tr><th>#</th><th>${t('item')}</th><th>${t('unit')}</th><th>${t('qty')}</th>${cfg.money?`<th>${t('price')}</th><th class="n">${t('total')}</th>`:''}<th></th></tr></thead><tbody>${lines}</tbody></table></div>`
+  ${sec('cart',t('lines'),`<div class="isearch"><div class="row" style="flex-wrap:nowrap;gap:8px"><div class="isearch-box" style="flex:1">${ic('search')}<input id="itemSearch" autocomplete="off" placeholder="${t('searchItem')}" enterkeyhint="search"></div>${isAdmin()?`<button type="button" class="btn primary acc-btn qi-btn" data-act="quickItem" title="${t('quickItem')}">${ic('plus')}<span class="hide-sm">${t('quickItemShort')}</span></button>`:''}</div><div class="isearch-res hidden" id="itemRes"></div></div>
+  ${!d.id&&d.lines.length?`<div class="small muted draft-note">${ic('clock')}<span>${t('draftKept')}</span></div>`:''}
+  ${d.lines.length?`<div class="tbl-wrap"><table class="t lines-t"><thead><tr><th>#</th><th>${t('item')}</th><th>${t('unit')}</th><th>${t('qty')}</th>${cfg.money?`<th>${t('price')}</th><th class="n">${t('lineTotal')}</th>`:''}<th></th></tr></thead><tbody>${lines}</tbody></table></div>`
    :`<div class="empty lines-empty">${ic('search')}<div>${items.length?t('noLinesYet'):`${t('noData')} — <a data-go="itemForm" style="cursor:pointer">${t('itemForm')}</a>`}</div></div>`}`,`<span class="lines-count" id="linesCount">${d.lines.length}</span>`)}
   ${sec('wallet',cfg.money?t('totalsSec'):t('notes'),`<div class="grid ${cfg.money?'g2':''}" style="align-items:start">
     ${fld(t('notes'),`<textarea data-f="notes" placeholder="${t('notesPh')}">${h(d.notes)}</textarea>`)}
@@ -1303,6 +1309,43 @@ function addItemToDraft(id,unitName){
   if(q){q.focus({preventScroll:true});try{q.select()}catch(e){}q.scrollIntoView({block:'center',behavior:'smooth'});q.closest('tr')&&q.closest('tr').classList.add('just-added');setTimeout(()=>{const r=q.closest('tr');r&&r.classList.remove('just-added')},1200)}
   else{const inp=$('#itemSearch');inp&&inp.focus()}
 }
+/* ===================== invoice drafts kept until saved or cleared ===================== */
+function draftKey(){return 'ias-drafts:'+(S.user?S.user.u:'')}
+function loadDrafts(){try{return JSON.parse(localStorage.getItem(draftKey())||'{}')||{}}catch(e){return {}}}
+function persistDrafts(){if(!S.drafts||!S.user)return;try{const o={};Object.entries(S.drafts).forEach(([k,d])=>{if(d&&!d.id&&d.lines&&d.lines.length)o[k]=d});
+  Object.keys(o).length?localStorage.setItem(draftKey(),JSON.stringify(o)):localStorage.removeItem(draftKey())}catch(e){}}
+/* ===================== quick new item from an invoice ===================== */
+function quickItemForm(){
+  const d=S.draft;if(!d)return;const cfg=DOCS[d.type];const q=(($('#itemSearch')||{}).value||'').trim();
+  const isAr=/[؀-ۿ]/.test(q);const units={};S.data.items.forEach(i=>{if(i.unit)units[i.unit]=(units[i.unit]||0)+1});
+  const defUnit=Object.entries(units).sort((a,b)=>b[1]-a[1]).map(x=>x[0])[0]||'';
+  const code=nextItemCode();const tx=settings().itemTaxable!==false;
+  openModal(`<div class="mh"><h3>${ic('plus')} ${t('quickItem')}</h3><button class="btn icon ghost" data-act="close">✕</button></div><form id="qiForm"><div class="mb">
+   <div class="grid g2">
+    ${fld(t('nameEn'),`<input name="nameEn" dir="ltr" value="${isAr?'':h(q)}" autocomplete="off">`)}
+    ${fld(t('nameAr'),`<input name="name" required value="${isAr?h(q):''}" autocomplete="off"><div class="small muted" id="qiTr"></div>`,1)}
+    ${fld(t('unit'),`<input name="unit" required value="${h(defUnit)}" list="qiUnits" autocomplete="off"><datalist id="qiUnits">${Object.keys(units).map(u=>`<option value="${h(u)}">`).join('')}</datalist>`,1)}
+    ${fld(t('code'),`<input name="code" dir="ltr" value="${code}" readonly>`)}
+    ${fld(t('salePrice'),`<input name="price" type="number" step="any" min="0" class="money" inputmode="decimal" value="">`)}
+    ${fld(t('costPrice'),`<input name="cost" type="number" step="any" min="0" class="money" inputmode="decimal" value="">`)}
+    ${fld(t('qty'),`<input name="qty" type="number" step="any" min="0" inputmode="decimal" value="1">`)}
+    <label class="row" style="gap:10px;align-self:end;padding-bottom:8px;cursor:pointer"><span class="sw"><input type="checkbox" name="taxable" ${tx?'checked':''}><i></i></span><span>${t('itemTaxable')}</span></label>
+   </div></div><div class="mf"><button type="button" class="btn" data-act="close">${t('cancel')}</button><button class="btn primary" id="qiSave">${ic('check')}${t('quickItemSave')}</button></div></form>`);
+  const f=$('#qiForm');const en=f.elements.nameEn,ar=f.elements.name;let autoAr='';
+  const tr=async()=>{const v=en.value.trim();if(!v||!/[A-Za-z]/.test(v)||(ar.value.trim()&&ar.value.trim()!==autoAr))return;const out=await translateName(v);if(out&&(!ar.value.trim()||ar.value.trim()===autoAr)&&en.value.trim()===v){ar.value=out;autoAr=out;$('#qiTr').textContent=t('autoTranslated')}};
+  en.addEventListener('change',tr);en.addEventListener('blur',tr);
+  (isAr||!q?ar:en).focus();
+  f.onsubmit=async e=>{e.preventDefault();const fd=Object.fromEntries(new FormData(f));const name=fd.name.trim(),unit=fd.unit.trim();if(!name||!unit)return toast(t('fillReq'),'err');
+    if(S.data.items.some(i=>(i.name||'').trim()===name&&(i.unit||'')===unit)&&!await confirmDlg(t('itemDupe')))return;
+    const b=$('#qiSave');b.disabled=true;const rate=+settings().taxRate||0;
+    const rec={id:uid(),code:S.data.items.some(x=>x.code===fd.code)?nextItemCode():fd.code,name,nameEn:fd.nameEn.trim(),unit,price:+fd.price||0,cost:+fd.cost||0,units:[],minQty:0,openingQty:0,notes:'',taxable:fd.taxable==='on',taxRate:rate,taxIncl:false,createdAt:Date.now()};
+    try{await Store.save('items',rec)}catch(err){b.disabled=false;return}
+    closeModal();const qty=+fd.qty||1;addItemToDraft(rec.id);const ln=S.draft.lines.find(l=>l.itemId===rec.id);if(ln&&qty!==1){ln.qty=qty;render()}
+    const inp=$('#itemSearch');if(inp)inp.value='';toast(t('saved')+' — '+rec.code,'ok')};
+}
+async function translateName(en){const sample=await getSample();if(!sample)return null;
+  const prompt='Translate this shop item name from English to Arabic, the way a grocery or trading shop in Bahrain would write it on an invoice. Keep brand names recognisable (write them in Arabic letters), keep numbers, sizes and units. Reply with only the Arabic item name on one line — no quotes, no explanation.\n\nItem name: '+en;
+  try{const {text}=await sample(prompt,{modelTier:'quick',cache:{gcTime:86400000}});return String(text).trim().split('\n')[0].replace(/^["'«“»\s]+|["'»”«\s.]+$/g,'').trim()||null}catch(e){return null}}
 const DOC_IC={sale:'cart',purchase:'truck',issue:'clip',salesReturn:'ret',purchaseReturn:'ret'};
 function docHeroHtml(d){const type=d.type;const cfg=DOCS[type];const T=docTotals(d);const lines=d.lines.filter(l=>l.itemId);const tq=lines.reduce((s,l)=>s+(+l.qty||0),0);
   const pn=d.partyId?((byId(partyCol(cfg.party),d.partyId)||{}).name||''):(String(d.partyName||'').trim()||(type==='issue'?t('otherParty'):cfg.party==='customer'?t('cashCustomer'):t('cashSupplier')).replace(/—/g,'').trim());
@@ -1341,8 +1384,8 @@ const PAGE_HERO={
   settings:()=>{const s=settings();return statHero({icon:'gear',chip:t('company'),sub:s.address||t('address'),title:coName(),big:cur(),bigSub:t('currencyEn').replace(/\s*\(.*\)/,''),
     stats:[s.phone?[s.phone,t('phone')]:null,s.whatsapp?[s.whatsapp,t('waShort')]:null,s.taxNo?[s.taxNo,t('taxNo')]:null,[visibleUsers().length||1,t('usersN')]],logo:s.logo?`<img class="dh-logo" src="${h(s.logo)}" alt="">`:''})},
 };
-function updateDocTotals(){paintDocHero();const d=S.draft;if(!d)return;const cfg=DOCS[d.type];const T=docTotals(d);
-  d.lines.forEach((l,i)=>{const c=$(`[data-lt="${i}"]`);if(c)c.textContent=fmt((+l.qty||0)*(+l.price||0))});
+function updateDocTotals(skip){paintDocHero();const d=S.draft;if(!d)return;const cfg=DOCS[d.type];const T=docTotals(d);persistDrafts();
+  d.lines.forEach((l,i)=>{if(i===skip)return;const c=$(`[data-lt="${i}"]`);if(c){const v=fx((+l.qty||0)*(+l.price||0));if(c.tagName==='INPUT'){if(document.activeElement!==c)c.value=v}else c.textContent=v}});
   const set=(id,v)=>{const e=$('#'+id);if(e)e.textContent=v};set('tSub',fmt(T.sub));set('tTax',fmt(T.tax));set('tTotal',money(T.total));
   if(paidLocked(d)){const p=$('[data-f="paid"]');if(p)p.value=fx(T.total);set('tRem',fmt(0))}else set('tRem',fmt(T.rem));}
 async function saveDoc(print){
@@ -1363,7 +1406,7 @@ async function saveDoc(print){
   if(type==='sale')rec.payMethod=d.payMethod;
   const T=docTotals(rec);if(paidLocked(Object.assign({type},rec)))rec.paid=T.total;if(rec.paid>T.total)rec.paid=T.total;if(rec.paid<0)rec.paid=0;
   try{await Store.save(cfg.col,rec)}catch(e){return}
-  toast(t('saved')+' — '+docNo(type,rec),'ok');S.draft=null;go('doc',type);if(print)openDoc(type,rec);
+  toast(t('saved')+' — '+docNo(type,rec),'ok');if(!d.id&&S.drafts)delete S.drafts[type];S.draft=null;persistDrafts();go('doc',type);if(print)openDoc(type,rec);
 }
 
 /* ---- document lists / reports ---- */
@@ -1955,7 +1998,7 @@ const ACT={
   closeSide(){const sd=$('#side');sd&&sd.classList.remove('open')},
   lang(){S.lang=isAr()?'en':'ar';try{localStorage.setItem('ias-lang',S.lang)}catch(e){}render()},
   setLang(el){S.lang=el.dataset.l;try{localStorage.setItem('ias-lang',S.lang)}catch(e){}render()},
-  logout(){Presence.stop();if(Store.sb){Store.sb.auth.signOut().catch(()=>{});COLS.forEach(c=>S.data[c]=[]);S.members=[];S.mustChange=false}S.user=null;saveSession();closeModal();render()},
+  logout(){Presence.stop();S.drafts=null;S.draft=null;if(Store.sb){Store.sb.auth.signOut().catch(()=>{});COLS.forEach(c=>S.data[c]=[]);S.members=[];S.mustChange=false}S.user=null;saveSession();closeModal();render()},
   gSearch(){openSearch()},
   restoreLog(el){restoreLog(el.dataset.id)},
   loadSrc(){loadSrc()},
@@ -1984,6 +2027,8 @@ const ACT={
   addUnit(){S.itemDraft.units.push({name:'',factor:'',price:'',cost:''});render();const n=$$('[data-iu$=":name"]').pop();n&&n.focus()},
   rmUnit(el){S.itemDraft.units.splice(+el.dataset.i,1);render()},
   saveItem(){saveItem()},
+  quickItem(){quickItemForm()},
+  async discardDraft(){const d=S.draft;if(!d||!await confirmDlg(t('clearDocQ'),1))return;if(S.drafts)delete S.drafts[d.type];S.draft=null;persistDrafts();render()},
   async retryCloud(){S.mode='connecting';render();await Store.init();if(S.ready){loadSession();if(S.user&&S.user.isDefault&&(settings().users||[]).length)S.user=null}render()},
   useLocal(){Store.loadLocal();S.mode='local';S.ready=true;render()},
   migrate(){openMigrate()},
@@ -2032,7 +2077,9 @@ document.addEventListener('input',e=>{
   if(ds.f&&S.draft){if(ds.f==='partyId')return;S.draft[ds.f]=el.value;S.dirty=true;updateDocTotals();return}
   if(ds.it&&S.itemDraft){if(el.type==='checkbox'){S.itemDraft[ds.it]=el.checked;render();return}S.itemDraft[ds.it]=el.value;S.dirty=true;paintItemPreview();if(ds.it==='unit')$$('.inp-suf em').forEach(e=>{if(!/%/.test(e.textContent))e.textContent=el.value});return}
   if(ds.iu&&S.itemDraft){const [i,f]=ds.iu.split(':');S.itemDraft.units[+i][f]=el.value;S.dirty=true;paintItemPreview();return}
-  if(ds.l&&S.draft){const [i,f]=ds.l.split(':');if(f==='itemId'||f==='unit')return;S.draft.lines[+i][f]=el.value;S.dirty=true;updateDocTotals();return}
+  if(ds.l&&S.draft){const [i,f]=ds.l.split(':');if(f==='itemId'||f==='unit')return;const ln=S.draft.lines[+i];
+    if(f==='total'){const q=+ln.qty||0;if(q>0){ln.price=(+el.value||0)/q;const pe=$(`[data-l="${i}:price"]`);if(pe)pe.value=fx(ln.price)}S.dirty=true;updateDocTotals(+i);return}
+    ln[f]=el.value;S.dirty=true;updateDocTotals();return}
   if(ds.v&&S.vdraft){if(ds.v==='partyType'||ds.v==='partyId')return;S.vdraft[ds.v]=el.value;S.dirty=true;return}
   if(ds.c&&S.count){S.count[ds.c]=el.value;S.dirty=true;return}
   if(ds.ca&&S.count){S.count.actual[ds.ca]=el.value;S.dirty=true;const st=stockMap();const df=el.value===''?0:(+el.value-st[ds.ca]);const c=$(`[data-cd="${ds.ca}"]`);if(c)c.innerHTML=`<b class="${df>0?'pos':df<0?'neg':''}">${df?fq(df):'—'}</b>`;return}
@@ -2060,7 +2107,7 @@ document.addEventListener('keydown',e=>{
     if(e.key==='Enter'){e.preventDefault();if(!e.target.value.trim())return;renderItemRes();const r=S.isRes||[];if(r.length)addItemToDraft(r[Math.min(S.isIdx||0,r.length-1)].id);return}
     if(e.key==='Escape'){e.stopPropagation();$('#itemRes').classList.add('hidden');return}}
   if(e.key==='Enter'&&e.target.dataset&&e.target.dataset.it==='nameEn'){e.preventDefault();e.target.blur();return}
-  if(e.key==='Enter'&&e.target.dataset&&/:qty$|:price$/.test(e.target.dataset.l||'')){e.preventDefault();
+  if(e.key==='Enter'&&e.target.dataset&&/:qty$|:price$|:total$/.test(e.target.dataset.l||'')){e.preventDefault();
     const [li,lf]=e.target.dataset.l.split(':');const pr=lf==='qty'?$(`[data-l="${li}:price"]`):null;
     if(pr){pr.focus({preventScroll:true});try{pr.select()}catch(x){}pr.scrollIntoView({block:'center',behavior:'smooth'});return}
     const inp=$('#itemSearch');if(inp){inp.focus();inp.scrollIntoView({block:'center',behavior:'smooth'})}return}
